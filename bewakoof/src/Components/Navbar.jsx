@@ -169,7 +169,7 @@ const Navbar = () => {
     const [data,setData] = useState("")
 
     const getCartData = () => {
-        axios.get("").then((res) => {
+        axios.get("https://bewakoof-database-api.vercel.app/cart").then((res) => {
             setData(res.data);
         })
         .catch((err) => {
