@@ -165,7 +165,7 @@ const Navbar = () => {
   const BrandVData = ["Vivo S1" , "Vivo Y51 2020" , "Vivo y 73"]
 
   const BottomNavbar = () => {
-    let str =JSON.parse(localstorage.getItem("str"))
+    let str =JSON.parse(localStorage.getItem("str"))
     const [data,setData] = useState("")
 
     const getCartData = () => {
@@ -248,14 +248,14 @@ const Navbar = () => {
                       <div>
                         <TopwearList
                           TopwearData={TopwearData}
-                          TopWear={Topwear}
+                          TopWear={TopWear}
                         />
                       </div>
                       <div>
-                        <TopwearList TopwearData={TopwearData} TopWear={Bottomwear} />
+                        <TopwearList TopwearData={TopwearData} TopWear={BottomWear} />
                       </div>
                       <div>
-                        <TopwearList TopwearData={TopwearData} TopWear={Winterwear} />
+                        <TopwearList TopwearData={TopwearData} TopWear={WinterWear} />
                       </div>
                       <div className="line"></div>
                       <div>
@@ -274,14 +274,14 @@ const Navbar = () => {
                       <div>
                         <TopwearList
                           TopwearData={TopwearData}
-                          TopWear={Topwear}
+                          TopWear={TopWear}
                         />
                       </div>
                       <div>
-                        <TopwearList TopwearData={TopwearData} TopWear={Bottomwear} />
+                        <TopwearList TopwearData={TopwearData} TopWear={BottomWear} />
                       </div>
                       <div>
-                        <TopwearList TopwearData={TopwearData} TopWear={Winterwear} />
+                        <TopwearList TopwearData={TopwearData} TopWear={WinterWear} />
                       </div>
                       <div className="line"></div>
                       <div>
