@@ -1,0 +1,35 @@
+.top_container{
+    width:100%;
+    height: 30px;
+    font-size:12px;
+    background-color:rgb(227, 222, 222);
+    color: grey;
+
+}
+.middle_container{
+    width:100%;
+    display: flex;
+    height: 25px;
+    justify-content:space-around;
+    padding: 2px;
+}
+.right_container{
+    display: flex;
+    gap: 25px;
+    width: 25%;
+    text-align: center;
+    margin-right: 25px;
+}
+.left_container{
+   
+    display: flex;
+    justify-content: flex-end;
+    width:15%;
+    gap: 10px;
+   
+}
+.content{
+    cursor: pointer;
+    margin: 5px;
+}
+
