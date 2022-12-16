@@ -1,42 +1,42 @@
 .mainFIlASDF{
-       border-right: 1px solid grey;
-       position: sticky;
-       top: 10%;
+    border-right: 1px solid grey;
+    position: sticky;
+    top: 10%;
 }
 .mainFIlASDF>div{
-    display: grid;
-    grid-template-columns: repeat(1,1fr);
-    padding-left: 5px;
- 
+ display: grid;
+ grid-template-columns: repeat(1,1fr);
+ padding-left: 5px;
+
 }
 
 .mainFIlASDF *{
-    cursor: default;
+ cursor: default;
 }
 
 .filterMainFIlASDF{
-    padding-bottom: 15px;
+ padding-bottom: 15px;
 }
 
 .filterMainFIlASDF p{
-    font-size: 14px;
-    width: 95%;
-    margin: auto;
+ font-size: 14px;
+ width: 95%;
+ margin: auto;
 }
 /*........................*/
 .mainFIlASDF>div:first-child>p{
-    font-size: 12px;
-    color: gray;
-    margin: 12px 5px 12px 0px; 
- }
- .mainFIlASDF>div:first-child{
-     display: flex;
-     justify-content: space-between;
- }
+ font-size: 12px;
+ color: gray;
+ margin: 12px 5px 12px 0px; 
+}
+.mainFIlASDF>div:first-child{
+  display: flex;
+  justify-content: space-between;
+}
 /*........................*/
 
 .filterMainFIlASDF p:hover{
-    background-color: rgba(204, 204, 204, 0.267);
+ background-color: rgba(204, 204, 204, 0.267);
 }
 
 .filterMainFIlASDF ul{
@@ -59,11 +59,11 @@ gap: 10px;
 }
 
 .includeFiltersFIlASDF{
-    color:#42a2a2 !important;
+ color:#42a2a2 !important;
 }
 .DisplayHiddenFIlASDF{
-    display: none;
+ display: none;
 }
 input[type=radio] {
-    accent-color: #42a2a2;
+ accent-color: #42a2a2;
 }
