@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
 import "./Navbar.css";
-import { HiOutlineDevicePhoneMobile } from "react-icons/hi2";
-// import { Link } from "react-router-dom";
+import { HiOutlineDevicePhoneMobile} from "react-icons/hi2";
+import {CiSearch} from "react-icons/ci"
+ import { Link } from "react-router-dom";
 import logo from "../Assets/logo.png";
 import axios from "axios";
+import { Box, Heading } from "@chakra-ui/layout";
+import { Avatar, AvatarGroup } from "@chakra-ui/avatar";
+import {BsBag, BsHeart} from "react-icons/bs"
+
 
 const Navbar = () => {
-
-    
-
     const [sticky , setSticky] = useState("");
-
     useEffect(() => {
-        window.addEventListener("scroll",stickyNavbar);
-        return () => window.removeEventListener("scroll",stickyNavbar)
+        window.addEventListener("scroll",stickNavbar);
+        return () => window.removeEventListener("scroll", stickNavbar)
     },[]);
 
-    const stickyNavbar = () => {
+    const stickNavbar = () => {
         if(window !==undefined) {
             let box = window.scrollY;
             box > 200 ? setSticky("sticky_nav"):setSticky("")
@@ -65,38 +66,38 @@ const Navbar = () => {
     );
   };
 
-  const BottomwearData = [
-    " Joggers",
-    "Pyjamas",
-    "Shorts",
-    "Jeans & Denims",
-    "Boxer Shorts,",
-    "Trousers & Pants",
-    "Plus Size Bottomwear",
-    "All Bottomwear",
-  ];
-  const FootwearData = [
-    "Jackets",
-    "Sweatshirts & Hoodies",
-    "Sweaters",
-    "Full Sleeve T-Shirts",
-    "Joggers",
-  ];
-  const WinterwearData = [
-    "Jackets",
-    "Sweatshirts & Hoodies",
-    "Sweaters",
-    "Full Sleeve T-Shirts",
-    "Joggers",
-  ];
-  const AccessoriesData = [
-    "Mobile Covers",
-    "Bags & Backpacks",
-    "Caps",
-    "Masks",
-    "Socks",
-    "Mugs",
-  ];
+  // const BottomwearData = [
+  //   " Joggers",
+  //   "Pyjamas",
+  //   "Shorts",
+  //   "Jeans & Denims",
+  //   "Boxer Shorts,",
+  //   "Trousers & Pants",
+  //   "Plus Size Bottomwear",
+  //   "All Bottomwear",
+  // ];
+  // const FootwearData = [
+  //   "Jackets",
+  //   "Sweatshirts & Hoodies",
+  //   "Sweaters",
+  //   "Full Sleeve T-Shirts",
+  //   "Joggers",
+  // ];
+  // const WinterwearData = [
+  //   "Jackets",
+  //   "Sweatshirts & Hoodies",
+  //   "Sweaters",
+  //   "Full Sleeve T-Shirts",
+  //   "Joggers",
+  // ];
+  // const AccessoriesData = [
+  //   "Mobile Covers",
+  //   "Bags & Backpacks",
+  //   "Caps",
+  //   "Masks",
+  //   "Socks",
+  //   "Mugs",
+  // ];
   const img = [
     "https://images.bewakoof.com/nav_menu/Circle-icon-1670577361.png",
     "https://images.bewakoof.com/nav_menu/icon-winter-1665155950.png",
@@ -143,7 +144,7 @@ const Navbar = () => {
         <ul>
           {img.map((item) => {
             <li className="itemlist">
-                <img  src={item} alt="" />
+                <img  height="60px" width="60px"src={item} alt="" />
             </li>;
           })}
         </ul>
@@ -166,6 +167,7 @@ const Navbar = () => {
 
   const BottomNavbar = () => {
     let str =JSON.parse(localStorage.getItem("str"))
+
     const [data,setData] = useState("")
 
     const getCartData = () => {
@@ -189,8 +191,8 @@ const Navbar = () => {
             <div className="right_container">
               <p className="content">Offers</p>
               <p className="content">Fanbook</p>
-              <div style={{ display: "flex" }}>
-                <span className="content">
+              <div style={{ display: "flex" , gap:"2px"}}>
+                <span style={{ marginTop:"2px"}} >
                   <HiOutlineDevicePhoneMobile />
                   Download App
                 </span>
@@ -270,33 +272,119 @@ const Navbar = () => {
                 <p>Mobile Covers</p>
                 <div>
                   <div className="dropdown_content3">
+                  <p>Popular</p>
                     <div className="hover_container">
                       <div>
                         <TopwearList
-                          TopwearData={TopwearData}
-                          TopWear={TopWear}
+                          TopwearData={BrandAData}
+                          TopWear={BrandA}
                         />
                       </div>
                       <div>
-                        <TopwearList TopwearData={TopwearData} TopWear={BottomWear} />
+                        <TopwearList TopwearData={BrandOData} TopWear={BrandO} />
                       </div>
                       <div>
-                        <TopwearList TopwearData={TopwearData} TopWear={WinterWear} />
+                        <TopwearList TopwearData={BrandRData} TopWear={BrandR} />
+                      </div>
+                      <div>
+                        <TopwearList TopwearData={BrandSData} TopWear={BrandS} />
+                      </div>
+                      <div>
+                        <TopwearList TopwearData={BrandVData} TopWear={BrandV} />
+                      </div>
+                      <div>
+                        <TopwearList TopwearData={BrandXData} TopWear={BrandX} />
                       </div>
                       <div className="line"></div>
                       <div>
-                        <SpecialdataImg />
+                        <p>Other Brands</p>
+                        <ul>
+                          <li className="itemlist">Oppo</li>
+                          <li className="itemlist">Huawei</li>
+                          <li className="itemlist">Moto</li>
+                        </ul>
+                      </div>
+                      <div>
+                      <img src="https://images.bewakoof.com/nav_menu/bewakoof-online-fashion-COTM-mobile-cover-navigation-box-desktop-1612275399.jpg" alt="PhoneImage" />
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+              <div>
+                <div className="input">
+                <div className="input1">
+                <span><CiSearch /></span>
+                <input type="text" className="input-box" placeholder="Search Here"/>
+                </div>
+                 <div className="login">
+                 
+                  <span style={{ fontSize: "20px", fontWeight: "lighter" }}>
+
+                  </span>
+                  <Link>
+                  <span>
+                    {str ? (
+                      <Box disabled={true} fontSize="12px" className="drop">
+                        <Heading  fontSize="12px">
+                          <AvatarGroup spacing="1rem">
+                            <Avatar boxSize={8} bg="teal.500" />
+                          </AvatarGroup>
+                        </Heading>
+                        <Box className="dropmenu" bg="white" p="30px">
+                          {" "}
+                          <Heading mt="30px" fontSize="12px">
+                              Hi
+                            </Heading>
+                            <Heading mt="30px" fontSize="12px">
+                              my Account
+                            </Heading>
+                            <Heading mt="30px" fontSize="12px">
+                              My Wishlist
+                            </Heading>
+                            <Heading mt="30px" fontSize="12px">
+                              My Orders
+                            </Heading>
+                            <Heading mt="30px" fontSize="12px">
+                              My wallet
+                            </Heading>
+                            <Heading
+                              onClick={() => {
+                                localStorage.setItem(
+                                  "sts",
+                                  JSON.stringify(false)
+                                );
+                              }}
+                              mt="30px"
+                              fontSize="12px"
+                            >
+                              Logout
+                            </Heading>
+                        </Box>
+                      </Box>
+                    ):(
+                      "Login"
+                    )}
+                  </span>
+                  </Link> 
+                  <span className="icon">
+                    <BsHeart />
+                  </span>
+                  <Link>
+                    <span><BsBag/></span>
+                    <span>
+                      {}
+                    </span>
+                  </Link>
+                </div>
+              </div>
           </div>
         </div>
       </div>
+    </div>
     </>
-  );
-};
+ )
+ }
 
 export default Navbar;
