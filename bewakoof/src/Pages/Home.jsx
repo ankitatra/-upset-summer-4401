@@ -1,3 +1,4 @@
+
 import React from 'react'
 import MiddleSection from '../Components/MiddleSection'
 import Navbar from '../Components/Navbar'
@@ -19,3 +20,4 @@ const Home = () => {
 }
 
 export default Home
+
