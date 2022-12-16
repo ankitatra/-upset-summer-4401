@@ -5,9 +5,7 @@ import Navbar from './Components/Navbar';
 import Routes from "./MainRoutes/MainRoutes"
 
 function App() {
-  return (
-
-  );
+<Men/>
 }
 
 export default App;
