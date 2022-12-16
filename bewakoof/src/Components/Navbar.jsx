@@ -189,10 +189,15 @@ const Navbar = () => {
             <div className="right_container">
               <p className="content">Offers</p>
               <p className="content">Fanbook</p>
+
               <div style={{ display: "flex" }}>
                 <span className="content">
+
+              <div className="downapp">
+                <span >
+
                   <HiOutlineDevicePhoneMobile />
-                  Download App
+                  <p>Download App</p>
                 </span>
               </div>
 
@@ -205,7 +210,6 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <h1>From here</h1>
       <div className="container">
         <div className="mid_container">
           <div className="firstpart">
@@ -295,6 +299,16 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+    </div>
+    <div className="nav-category">
+      <h1>LIVE NOW!</h1>
+      <h1>MEN</h1>
+      <h1>WOMEN</h1>
+      <h1>ACCESSORIES</h1>
+      <h1>WINTERWEAR</h1>
+    </div>
+
     </>
   );
 };
