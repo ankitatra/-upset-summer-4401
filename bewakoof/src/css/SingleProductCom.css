@@ -1,0 +1,36 @@
+.imgDiv{
+    width:100%;
+    
+}
+
+.imgDiv img{
+    width: 100%;
+}
+
+.main{
+    border: 1px solid grey;
+    background-color: #fff;
+
+}
+
+.ratingDiv{
+    position: absolute;
+    background-color: rgb(61, 61, 61);
+    top: 50%;
+    z-index: 2;
+    color: #fff;
+    font-size: 10px;
+    padding: 0px 2px 0px 5px;
+    
+
+}
+.ratingDiv p{
+    height: max-content;
+    margin: 0px ;
+    
+
+}
+.ratingDiv span{
+    height: max-content;
+    color: rgb(224, 240, 76);
+}

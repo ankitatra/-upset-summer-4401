@@ -20,7 +20,7 @@ const reducer = (state = initialState,{type,payload}) => {
 
              case types.GET_PRODUCTS_SUCCESS:
           return {
-            ...state,tasks:payload,isLoading:false
+            ...state,Products:payload,isLoading:false
           };
    
                 default:
