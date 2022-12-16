@@ -1,45 +1,45 @@
-.main{
+.mainFIlASDF{
        border-right: 1px solid grey;
-    position: sticky;
-    top: 10%;
+       position: sticky;
+       top: 10%;
 }
-.main>div{
+.mainFIlASDF>div{
     display: grid;
     grid-template-columns: repeat(1,1fr);
     padding-left: 5px;
  
 }
 
-.main *{
+.mainFIlASDF *{
     cursor: default;
 }
 
-.filterMain{
+.filterMainFIlASDF{
     padding-bottom: 15px;
 }
 
-.filterMain p{
+.filterMainFIlASDF p{
     font-size: 14px;
     width: 95%;
     margin: auto;
 }
 /*........................*/
-.main>div:first-child>p{
+.mainFIlASDF>div:first-child>p{
     font-size: 12px;
     color: gray;
     margin: 12px 5px 12px 0px; 
  }
- .main>div:first-child{
+ .mainFIlASDF>div:first-child{
      display: flex;
      justify-content: space-between;
  }
 /*........................*/
 
-.filterMain p:hover{
+.filterMainFIlASDF p:hover{
     background-color: rgba(204, 204, 204, 0.267);
 }
 
-.filterMain ul{
+.filterMainFIlASDF ul{
 display: grid;
 font-size: 14px;
 grid-template-columns: repeat(1,1fr);
@@ -47,7 +47,7 @@ gap: 10px;
 color: grey;
 }
 
-.setRadio{
+.setRadioFIlASDF{
 
 font-size: 14px;
 width: 90%;
@@ -58,12 +58,12 @@ grid-template-columns: repeat(1,1fr);
 gap: 10px;
 }
 
-.includeFilters{
+.includeFiltersFIlASDF{
     color:#42a2a2 !important;
 }
-.DisplayHidden{
+.DisplayHiddenFIlASDF{
     display: none;
 }
-input {
+input[type=radio] {
     accent-color: #42a2a2;
 }

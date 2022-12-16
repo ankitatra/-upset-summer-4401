@@ -9,7 +9,6 @@ export const Products = () => {
     const location=useLocation()
     const [searchParams]=useSearchParams()
     const Products=useSelector((store)=>store.AppReducer.Products)
-    const [limit,setLimit]=useState(20)
     const [cat,setCat]=useState("mensdata")
  console.log(Products)
 
@@ -28,14 +27,13 @@ export const Products = () => {
                   _order: sortBy,
                   rating_gte:ratingBy,
                   off_gte:off,
-                  _limit:limit
                  }
           }
       dispatch(getProducts(getBookParams,cat))
     }
 
     
-  },[Products.length,dispatch,location.search,limit,setLimit])
+  },[Products.length,dispatch,location.search])
 
 
 
@@ -49,13 +47,14 @@ export const Products = () => {
      
     <div>
 
-        <div className='productsDiv'>
+        <div className='productsDivprdasdfsd'>
           {
             Products.map((el)=>{
-             return <SingleProductCom key={el.id+cat} {...el}/>
+             return <SingleProductCom key={el.id+cat} {...el} cat={cat}/>
             })
           }
         </div>
+       
 
     </div>
    

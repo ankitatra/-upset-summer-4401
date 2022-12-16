@@ -87,24 +87,24 @@ useEffect(()=>{
 
   return (
    <>
- <div className={"main"}>
+ <div className={"mainFIlASDF"}>
 <div>
 <p>FILTERS</p>
-<p disabled={off==""||rating==""||sort==""||brand_namez.length==0} onClick={()=>resetFilters()} className={(off!==""||rating!==""||sort!==""||brand_namez.length!==0)?"includeFilters":"DisplayHidden"}>Clear All</p>
+<p disabled={off==""||rating==""||sort==""||brand_namez.length==0} onClick={()=>resetFilters()} className={(off!==""||rating!==""||sort!==""||brand_namez.length!==0)?"includeFiltersFIlASDF":"DisplayHiddenFIlASDF"}>Clear All</p>
 </div>
 
 
 
 
-<div className={"filterMain"}  >
+<div className={"filterMainFIlASDF"}  >
 { /*brand*/ }
 <div>
-   <p className={brand_namez.length!==0?"includeFilters":undefined}>Brand</p>
+   <p className={brand_namez.length!==0?"includeFiltersFIlASDF":undefined}>Brand</p>
    <div>
 <ul>
 
 {brandFilter.map((el)=>{
-  return <li key={el+"newBrand_namezs"} className={brand_namez.includes(el)?"includeFilters":undefined} onClick={()=> handleFilterBrand_namez(el)} >{el}</li>
+  return <li key={el+"newBrand_namezs"} className={brand_namez.includes(el)?"includeFiltersFIlASDF":undefined} onClick={()=> handleFilterBrand_namez(el)} >{el}</li>
 })}
 
     
@@ -114,14 +114,14 @@ useEffect(()=>{
 
 {/* discount */}
 <div>
-  <p className={off!==""?"includeFilters":undefined}>
+  <p className={off!==""?"includeFiltersFIlASDF":undefined}>
     Discount
   </p>
    <div>
       <ul>
         {
           discountFilter.map((el)=>{
-            return <li key={el+"Off"} className={off===el?"includeFilters":undefined}   onClick={()=>handleFilterOff(el)}>{el}% Or More</li>
+            return <li key={el+"Off"} className={off===el?"includeFiltersFIlASDF":undefined}   onClick={()=>handleFilterOff(el)}>{el}% Or More</li>
 
           })
         }
@@ -131,14 +131,14 @@ useEffect(()=>{
 
 {/* rating */}
 <div>
-<p className={rating!==""?"includeFilters":undefined}>
+<p className={rating!==""?"includeFiltersFIlASDF":undefined}>
   Ratings
 </p>
 <div>
   <ul>
     {
 ratingFilter.map((el)=>{
-  return <li key={el+"rating"} className={rating===el?"includeFilters":undefined}  onClick={()=>handleFilterRating(el)}>{el} and above</li>
+  return <li key={el+"rating"} className={rating===el?"includeFiltersFIlASDF":undefined}  onClick={()=>handleFilterRating(el)}>{el} and above</li>
 })
     }
   </ul>
@@ -148,8 +148,8 @@ ratingFilter.map((el)=>{
 
 {/* sortBy */}
 <div>
-  <p className={sort!==""?"includeFilters":undefined}>Sort By</p>
-     <div className={"setRadio"}>
+  <p className={sort!==""?"includeFiltersFIlASDF":undefined}>Sort By</p>
+     <div className={"setRadioFIlASDF"}>
     
       <div >
       <input type="radio" onChange={handleSort} checked={sort==="asc"} value={"asc"} name="sortBy" />
