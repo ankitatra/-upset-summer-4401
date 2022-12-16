@@ -2,8 +2,16 @@ import React from 'react'
 import { FilterCom } from './FilterCom'
 import { Products } from './Products'
 import styles from "../css/store.module.css"
+import { useSelector } from 'react-redux'
 
 export const  Store= () => {
+const Total=useSelector((store)=>store.AppReducer.Products.length)
+
+  const handleScroll=()=>{
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth' });
+  }
+
+
   return (
     <>
    
@@ -18,9 +26,9 @@ export const  Store= () => {
    
    
      <div className={styles.headingDiv}>
-         <h1>
-             Men Clothing <span>(7946)</span>
-         </h1>
+       
+             Men Clothing <span>({Total})</span>
+         
      </div>
 
 
@@ -34,6 +42,9 @@ export const  Store= () => {
             <Products/>
           </div>
      </div>
+     <div className={styles.scrollTOpFADS} onClick={handleScroll}>
+     <i className="fa fa-angle-up" aria-hidden="true"></i>
+        </div>
  
  
  <div>

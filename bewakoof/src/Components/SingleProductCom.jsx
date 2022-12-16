@@ -2,9 +2,9 @@ import React from 'react'
 import "../css/SingleProductCom.css"
 import { Link, Navigate, useNavigate } from "react-router-dom"
 
-const SingleProductCom = ({actualPriceText,brand_namez,clr_shade_4,discount_price_box,discountedPriceText,id,off,productImgTagSrc,rating,size}) => {
+const SingleProductCom = ({actualPriceText,cat,brand_namez,clr_shade_4,discount_price_box,discountedPriceText,id,off,productImgTagSrc,rating,size}) => {
   const navigate=useNavigate()
-
+console.log(cat)
 
 
 
@@ -23,22 +23,22 @@ return (
 
 
 
-<div onClick={()=>navigate(`/products/mendata/${id}`)} className='main'>
-  <div className="imgDiv">
+<div onClick={()=>navigate(`/products/${cat}/${id}`)} className='mainsnglerwfds'>
+  <div className="imgDivsnglerwfds">
     <img src={productImgTagSrc} alt="" />
   </div>
 
 
   <div >
-   <div className="ratingDiv">
+   <div className="ratingDivsnglerwfds">
    <p>{rating}.0 <span>&#9733;</span></p>
    </div>
 
 
-    <div>
+    <div className='ProductDiscsnglerwfds'>
      
      
-      <div>
+      <div className='Title_wishlistsnglerwfds'>
         <p>{brand_namez}</p>
         <div>
           <img src="https://images.bewakoof.com/web/Wishlist.svg" alt="Wishlist" />
@@ -46,12 +46,12 @@ return (
       </div>
 
 
-      <div>
+      <div className='titlesnglerwfds'>
         <p>{clr_shade_4}</p>
       </div>
 
 
-      <div>
+      <div className='prcsnglerwfds'>
 
       <span>
         ₹{discountedPriceText}
@@ -63,8 +63,11 @@ return (
 
       </div>
    
-      <div>
+      <div className='primesnglerwfds'>
          <p>₹{discount_price_box} For TriBe Members</p>  
+        {id%7==0||id%5==0?<p>
+       Few Left
+        </p>:undefined}
       </div>
 
     </div>
