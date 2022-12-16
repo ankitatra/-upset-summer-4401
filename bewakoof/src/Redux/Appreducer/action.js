@@ -1,8 +1,8 @@
-import * as types from "./actionTypes"
+import * as types from "./actionType.js"
 import axios from "axios"
 
 
-//get tasks
+
 
 export const getProductsLoading=()=>{
     return {
@@ -23,18 +23,20 @@ export const getProductsFailure=()=>{
     }
 }
 
-export const getProducts=(payload)=>(dispatch)=>{
-    dispatch(getTaskLoading())
-       axios({
-        method:"get",
-        baseURL:`http://localhost/8080`,
-        url:payload.endpoint,
-        data:payload.data
-       }).then((res)=>{
-        dispatch(getTaskSuccess(res.data))
+
+
+    
+
+               
+export const getProducts=(params,cat)=>(dispatch)=>{
+    dispatch(getProductsLoading())
+    return axios.get("https://bewakoof-database-api.vercel.app/"+cat,params)
+    .then((r)=>{
+     
+        dispatch(getProductsSuccess(r.data))
        })
        .catch((err)=>{
-        dispatch(getTaskFailure())
+        dispatch(getProductsFailure())
        })
     
 }
