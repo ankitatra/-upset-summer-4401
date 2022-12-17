@@ -12,20 +12,31 @@ import {
 import { EmailIcon } from "@chakra-ui/icons";
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { GrUserAdmin } from "react-icons/gr";
 import { useState } from "react";
-import { Signupd } from "../Comp/Signupd";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const Signup = ({mob}) => {
+const Signup = () => {
   const [mobile, setMobile] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    e.preventDefault();;
+    e.preventDefault();
+    alert("You seem to be a new user");
+    navigate("/signupd");
+  };
+
+  const handleEmail = () => {
+    navigate("/login");
   };
 
   return (
     <Flex>
-      <Box w="50%" h="100vh" bgGradient="linear(to-t, yellow.100, white)">
+      <Box
+        w="50%"
+        h="100vh"
+        // bgGradient="linear(to-t, yellow.100, white)"
+      >
         <Text fontSize={{ base: "15px", md: "40px", lg: "40px" }} as="b">
           Welcome to the world of Fashion Store!
         </Text>
@@ -44,7 +55,7 @@ const Signup = ({mob}) => {
               for Latest trends, exciting offers and everything Fashion Store!
             </Text>
             <Input
-              maxLength={'10'}
+              maxLength={"10"}
               placeholder="Enter Mobile Number"
               mt={4}
               w="80%"
@@ -78,8 +89,20 @@ const Signup = ({mob}) => {
           fontSize="15px"
           variant="outline"
           leftIcon={<EmailIcon />}
+          onClick={handleEmail}
         >
           CONTINUE WITH EMAIL
+        </Button>
+        <Button
+          mt={4}
+          w="63%"
+          h={"40px"}
+          fontSize="15px"
+          variant="outline"
+          leftIcon={<GrUserAdmin />}
+          onClick={handleEmail}
+        >
+          LOGIN AS ADMIN
         </Button>
         <HStack align={"center"} justifyContent="center" mt={3} w="65%">
           <Button

@@ -19,7 +19,10 @@ export const Login = () => {
   const handleShowClick = () => setShowPassword(!showPassword);
 
   return (
-    <Box bgGradient="linear(to-t, yellow.100, white)" h={"100vh"}>
+    <Box
+      // bgGradient="linear(to-t, yellow.100, white)"
+      h={"100vh"}
+    >
       <Box w={"70%"} m="auto">
         <form>
           <Stack
@@ -27,19 +30,19 @@ export const Login = () => {
             p="1rem"
             backgroundColor="whiteAlpha.900"
             h={"80vh"}
-            alignItems='center'
+            alignItems="center"
           >
             <Text fontSize="25px" as="b" m="auto">
               Log in to your account
             </Text>
-            <FormControl w={'60%'}>
+            <FormControl w={"60%"}>
               <Input
                 type="email"
                 placeholder="email address"
                 variant="flushed"
               />
             </FormControl>
-            <FormControl w={'60%'}>
+            <FormControl w={"60%"}>
               <InputGroup>
                 <Input
                   type={showPassword ? "text" : "password"}
@@ -56,11 +59,7 @@ export const Login = () => {
                 <Link>Forgot Password?</Link>
               </FormHelperText>
             </FormControl>
-            <Button
-              type="submit"
-              colorScheme="teal"
-              w={'60%'}
-            >
+            <Button type="submit" colorScheme="teal" w={"60%"}>
               Login
             </Button>
           </Stack>

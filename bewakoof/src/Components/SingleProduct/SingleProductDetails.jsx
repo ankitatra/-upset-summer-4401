@@ -1,17 +1,16 @@
 import { Box, Button, Flex, Text, useToast } from "@chakra-ui/react";
 import axios from "axios";
-import { useState } from "react";
 import { CgShoppingBag } from "react-icons/cg";
 import { CiHeart } from "react-icons/ci";
 import Size from "./Size";
 import ProductOffer from "./ProductOffer";
-import { getLocalData } from "../../Utils/LocalStorage";
+// import { getLocalData } from "../../Utils/LocalStorage";
 import SingleProductImg from "./SingleProductImg";
 import SingleProductSlider from "./SingleProductSlider";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useParams } from "react-router-dom";
-import { getProducts } from "../Redux/Appreducer/action";
+import { getProducts } from "../../Redux/Appreducer/action";
 
 // const data = [
 //   {
@@ -41,73 +40,73 @@ import { getProducts } from "../Redux/Appreducer/action";
 // ];
 // console.log(data[0].productImgTagSrc);
 
-const dispatch = useDispatch();
-const { id, cat } = useParams();
-const Products = useSelector((store) => store.AppReducer.Products);
-const [currentProduct, setCurrentProduct] = useState({});
-console.log(currentProduct);
-const [data, setData] = useState([{}]);
-useEffect(() => {
-  if (Products.length === 0) {
-    dispatch(getProducts({}, cat));
-  }
-}, [Products.length, dispatch]);
-useEffect(() => {
-  if (id) {
-    const currentProduct = Products.find((item) => item.id === Number(id));
-    currentProduct && setCurrentProduct(currentProduct);
-  }
-}, [id, Products]);
-console.log(currentProduct);
-
-useEffect(() => {
-  setData(currentProduct);
-}, [currentProduct, id, Products]);
- console.log("data",data)
 export default function SingleProductDetial() {
-  const [token, setToken] = useState(getLocalData("userToken"));
+  // const [token, setToken] = useState(getLocalData("userToken"));
   const [size, setsize] = useState("");
   const Toast = useToast();
+  const dispatch = useDispatch();
+  const { id, cat } = useParams();
+  const Products = useSelector((store) => store.AppReducer.Products);
+  const [currentProduct, setCurrentProduct] = useState({});
+  console.log(currentProduct);
+  const [data, setData] = useState([{}]);
+  useEffect(() => {
+    if (Products.length === 0) {
+      dispatch(getProducts({}, cat));
+    }
+  }, [Products.length, dispatch]);
+  useEffect(() => {
+    if (id) {
+      const currentProduct = Products.find((item) => item.id === Number(id));
+      currentProduct && setCurrentProduct(currentProduct);
+    }
+  }, [id, Products]);
+  console.log(currentProduct);
 
-  const AddCart = (data) => {
-    console.log("data", data._id);
-    delete data._id;
-    data.size = size;
-    data.qty = 1;
+  useEffect(() => {
+    setData(currentProduct);
+  }, [currentProduct, id, Products]);
+  console.log("data", data);
 
-    const payload = data;
-    return axios
-      .post("https://justbuybackend.onrender.com/products/cart", payload, {
-        headers: { Authorization: "Bearer" + " " + token },
-      })
-      .then((res) => {
-        console.log(res.data);
+  // const AddCart = (data) => {
+  //   console.log("data", data._id);
+  //   delete data._id;
+  //   data.size = size;
+  //   data.qty = 1;
 
-        Toast({
-          title: res.data,
-          description: `${
-            res.data === "Product Already In The Cart" ? "error" : "success"
-          }`,
-          status: `${
-            res.data === "Product Already In The Cart" ? "error" : "success"
-          }`,
-          duration: 5000,
-          isClosable: true,
-          position: "top",
-        });
-      })
-      .catch((err) => {
-        console.log("error While adding to cart", err);
-        Toast({
-          title: "YOU ARE NOT AUTHORIZED!!",
-          description: "Please Login",
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-          position: "top",
-        });
-      });
-  };
+  //   const payload = data;
+  //   return axios
+  //     .post("https://justbuybackend.onrender.com/products/cart", payload, {
+  //       headers: { Authorization: "Bearer" + " " + token },
+  //     })
+  //     .then((res) => {
+  //       console.log(res.data);
+
+  //       Toast({
+  //         title: res.data,
+  //         description: `${
+  //           res.data === "Product Already In The Cart" ? "error" : "success"
+  //         }`,
+  //         status: `${
+  //           res.data === "Product Already In The Cart" ? "error" : "success"
+  //         }`,
+  //         duration: 5000,
+  //         isClosable: true,
+  //         position: "top",
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       console.log("error While adding to cart", err);
+  //       Toast({
+  //         title: "YOU ARE NOT AUTHORIZED!!",
+  //         description: "Please Login",
+  //         status: "error",
+  //         duration: 5000,
+  //         isClosable: true,
+  //         position: "top",
+  //       });
+  //     });
+  // };
   return (
     <Flex w={"85%"} marginLeft={"100px"}>
       <Box marginLeft={"20px"} width={"100%"}>
@@ -199,7 +198,7 @@ export default function SingleProductDetial() {
         <br />
         <Flex gap={"10px"}>
           <Button
-            onClick={() => AddCart(data)}
+            // onClick={() => AddCart(data)}
             leftIcon={<CgShoppingBag />}
             bg={"rgb(253,216,53)"}
             colorScheme="rgb(253,216,53)"
