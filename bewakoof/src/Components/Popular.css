@@ -1,10 +1,13 @@
+
  .popular h1{
+
     text-align: center;
     margin: 20px 0 10px 0;
     font-size: 20px;
     color: brown;
     font-weight: bold;
 }
+
 .boys{
     display: flex;
     justify-content: space-between;
@@ -13,11 +16,13 @@
     display: flex;
     justify-content: space-between;
 
+
 }
 .newarrival{
     border: 1px solid red;
     height: 500px;
 }
 
-} 
+
+
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
-import { useLocation, useSearchParams } from "react-router-dom"
+import { useLocation, useParams, useSearchParams } from "react-router-dom"
 import { getProducts } from '../Redux/Appreducer/action'
 import SingleProductCom from './SingleProductCom'
 import "../css/Products.css"
@@ -8,10 +8,11 @@ export const Products = () => {
     const dispatch=useDispatch()
     const location=useLocation()
     const [searchParams]=useSearchParams()
-    const Products=useSelector((store)=>store.AppReducer.Products)
-    const [cat,setCat]=useState("mensdata")
- console.log(Products)
-
+   const {cat:Cat}=useParams()
+   const initCat=Cat==="Men"?"mensdata":Cat==="Women"?"womensData":"mobiles"
+    const {Products,isLoading}=useSelector((store)=>store.AppReducer)
+    
+    const [cat,setCat]=useState(initCat||"mensdata")
     useEffect(()=>{
 
       if(location ||Products.length===0){
@@ -41,19 +42,28 @@ export const Products = () => {
 
 
 
-
   return (
   
      
     <div>
-
-        <div className='productsDivprdasdfsd'>
+{/* {
+  isLoading&&<div style={{position:"absolute",top:"45%"}}>
+    <Audio height = "80"
+  width = "80"
+  radius = "9"
+  color = '#fdd835'
+  ariaLabel = 'three-dots-loading'     
+  wrapperStyle
+  wrapperClass />
+    </div>
+} */}
+     {  !isLoading&& <div className='productsDivprdasdfsd'>
           {
             Products.map((el)=>{
              return <SingleProductCom key={el.id+cat} {...el} cat={cat}/>
             })
           }
-        </div>
+        </div>}
        
 
     </div>
