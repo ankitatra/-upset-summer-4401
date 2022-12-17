@@ -1,4 +1,4 @@
-/* .popular h1{
+.popular h1{
     text-align: center;
     margin: 20px 0 10px 0;
     font-size: 20px;
@@ -10,4 +10,4 @@
 .girls{
     display: flex;
     justify-content: space-between;
-} */
+} 

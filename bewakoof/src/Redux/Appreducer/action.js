@@ -28,15 +28,13 @@ export const getProductsFailure=()=>{
     
 
                
-export const getProducts=(params,cat)=>(dispatch)=>{
+export const getProducts=(params,cat)=>async (dispatch)=>{
     dispatch(getProductsLoading())
-    return axios.get("https://bewakoof-database-api.vercel.app/"+cat,params)
-    .then((r)=>{
-     
+    try {
+        const r = await axios.get("https://bewakoof-database-api.vercel.app/" + cat, params)
         dispatch(getProductsSuccess(r.data))
-       })
-       .catch((err)=>{
+    } catch (err) {
         dispatch(getProductsFailure())
-       })
+    }
     
 }

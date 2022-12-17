@@ -27,6 +27,7 @@
 	position: relative;
     margin-top: 25px;
     margin-bottom: 35px;
+    font-size: 32px;
 
 
 }
@@ -52,9 +53,12 @@
 .headingDiv h1{
     margin: 0px;
     margin-bottom: 8px;
+
 }
+
 .headingDiv span{
   color: #949494;
+  font-size: 32px;
   font-weight: 300 ;
 }
 
@@ -67,7 +71,6 @@
 }
 
 .mainStore>div{
-    border: 1px solid;
   position: sticky;
   top: 10%;
   
@@ -96,5 +99,39 @@ padding: 20px;
     background-color: #f3f3f3;
    color: #c09701;
    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 18px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+@media only screen and (max-width: 1020px) {
+    .mainStore{
+        grid-template-columns: 30% 70%;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    .main{
+        padding: 10px 50px;
+    }
+.mainStore{
+    grid-template-columns: repeat(1,1fr);
+    width: 100%;
+}
+
+.mainStore>:first-child{
+    display: none;
+
+}
+
+.headingDiv{
+margin: auto;
+font-size: 24px;
+width: max-content;
+}
+
+.headingDiv span{
+    font-size: 22px;
+}
+.mainStore{
+    padding: 0px;
+}
 }
 
