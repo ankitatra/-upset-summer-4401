@@ -59,7 +59,7 @@ const Navbar = () => {
         <p className="heading">{TopWear}</p>
         <ul>
           {TopwearData.map((item, index) => (
-            <li className="itemlist">{item}</li>
+            <li key= {index} className="itemlist">{item}</li>
           ))}
         </ul>
       </>
@@ -171,7 +171,7 @@ const Navbar = () => {
     const [data,setData] = useState("")
 
     const getCartData = () => {
-        axios.get("https://bewakoof-database-api.vercel.app/cart").then((res) => {
+        axios.get("https://bewakoof-database-api.vercel.app/cartdata").then((res) => {
             setData(res.data);
         })
         .catch((err) => {
