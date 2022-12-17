@@ -3446,9 +3446,7 @@
       "off": 80,
       "rating": "2"
     }
-  
   ],
-  
   "womensdata": [
     {
       "id": 1,
@@ -6540,7 +6538,7 @@
     }
   ],
   "cartdata": [],
-  "mobiles":[
+  "mobiles": [
     {
       "size": [],
       "id": 1,
@@ -7166,5 +7164,4 @@
       "rating": "2"
     }
   ]
-
 }
