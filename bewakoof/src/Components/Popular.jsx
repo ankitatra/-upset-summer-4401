@@ -1,7 +1,10 @@
 import React from 'react'
 import "./Popular.css"
 
+
 const Popular = () => {
+
+    
   return (
     <>
       <div className='popular'>
@@ -23,6 +26,7 @@ const Popular = () => {
            <img src="https://images.bewakoof.com/uploads/grid/app/category-box-new-fullsleevetees-1668773243.jpg" alt="" />
         </div>
       </div>
+      
     </>
   )
 }
