@@ -51,24 +51,27 @@ const NewArrivals = () => {
     })}
     </Slider>
     <div>
-        <Link>
+        <Link to="/Men">
             <h2 className='explore'>Explore All</h2>
         </Link>
     </div>
     </div>
     </div>
+  
         <div className='gangs'>
             <div className='gangstext'>
-               <h2>The GANG'S FAVOURITE</h2> 
+               <h2>The GANG'S FAVOURITE</h2>
             </div>
+            <Link to="/Men">
             <div className='gangsImage'>
                 <img src="https://images.bewakoof.com/uploads/grid/app/new-mid-banner-clearance-zone-1670505866.jpg" alt="" />
                 <img src="https://images.bewakoof.com/uploads/grid/app/new-mid-banner-trendy-jogs-common-1670506775.jpg" alt="" />
                 <img src="https://images.bewakoof.com/uploads/grid/app/new-mid-banner-windcheaters-m-1670248088.jpg" alt="" />
                 <img src="https://images.bewakoof.com/uploads/grid/app/full-sleeve-mid-sie-banner-1671179452.jpg" alt="" />
             </div>
+            </Link>
         </div>  
-             
+           
         </>
        
        

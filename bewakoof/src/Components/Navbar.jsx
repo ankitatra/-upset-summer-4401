@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import { HiOutlineDevicePhoneMobile} from "react-icons/hi2";
 import {CiSearch} from "react-icons/ci"
- import { Link } from "react-router-dom";
+ import { Link, useNavigate } from "react-router-dom";
 import logo from "../Assets/logo.png";
 import axios from "axios";
 import { Box, Heading } from "@chakra-ui/layout";
@@ -12,6 +12,7 @@ import {BsBag, BsHeart} from "react-icons/bs"
 
 const Navbar = () => {
     const [sticky , setSticky] = useState("");
+    const navigate=useNavigate()
     useEffect(() => {
         window.addEventListener("scroll",stickNavbar);
         return () => window.removeEventListener("scroll", stickNavbar)
@@ -210,12 +211,13 @@ const Navbar = () => {
       <div className="container">
         <div className="mid_container">
           <div className="firstpart">
-            {/* <Link to=""></Link> */}
-            <img src={logo} alt="logo" />
+           <Link to="/"><img src={logo} alt="logo" /></Link> 
+            
           </div>
           <div className="secondpart">
             <div className="nav_category">
               <div className="nav_dropdown">
+              <Link></Link>
                 <p>Men</p>
                 <div>
                   <div className="dropdown_content1">
@@ -383,8 +385,8 @@ const Navbar = () => {
       </div>
     </div>
     <div className="nav-category">
-      <h1>LIVE NOW!</h1>
-      <h1>MEN</h1>
+      <Link><h1>LIVE NOW!</h1></Link>
+     <h1><Link to="/Men">MEN</Link></h1>
       <h1>WOMEN</h1>
       <h1>ACCESSORIES</h1>
       <h1>WINTERWEAR</h1>

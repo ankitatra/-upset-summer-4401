@@ -5,6 +5,11 @@ import { Store } from './Components/Store';
 import Routes1 from './MainRoutes/Routes1';
 import Navbar from './Components/Navbar';
 
+import MainRoutes from "./MainRoutes/MainRoutes";
+
+import { Signup } from './Pages/Signup';
+
+
 function App() {
 
 
@@ -12,9 +17,15 @@ function App() {
   return (
 
      <div className="App">
-    <Routes1/>
-  {/* <Men/> */}
-  {/* <Store/> */}
+
+
+
+      {/* <Men/> */}
+      <MainRoutes />
+
+
+    {/* <Signup/> */}
+
     </div>
 
 

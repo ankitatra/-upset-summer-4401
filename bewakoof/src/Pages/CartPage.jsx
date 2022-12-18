@@ -1,39 +1,22 @@
-import React from 'react'
-import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { Navigate, useParams } from "react-router-dom"
-import { getProducts } from '../Redux/Appreducer/action'
 
-const CartPage = () => {
- const dispatch=useDispatch()
- const {id,cat}=useParams()
- const Products=useSelector((store)=>store.AppReducer.Products)
- const [currentProduct,setCurrentProduct]=useState({})
+import react from "react";
+import { AddressForm } from "../Components/Cart/Address";
+import { CartProduct } from "../Components/Cart/cardProduct ";
+import { Coupons } from "../Components/Cart/Coupons";
 
 
- useEffect(()=>{
-
-  if(Products.length===0){
-        dispatch(getProducts({},cat))
-  }
-
-},[Products.length,dispatch])
-
-
-useEffect(()=>{
-  if(id){
-      const currentProduct=Products.find((item)=>item.id=== Number(id))
-       currentProduct&&setCurrentProduct(currentProduct)
-  }
-  },[id,Products])
-console.log(currentProduct)
-
-
-
-
+export const CartPage = () => {
   return (
-    <div>CartPage</div>
-  )
-}
+    <div>
+   <AddressForm/>
+   <CartProduct/>
+   <Coupons/>
+    
+    </div>
+  );
+};
 
-export default CartPage
+
+
+
+
