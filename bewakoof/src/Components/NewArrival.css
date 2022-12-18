@@ -1,0 +1,51 @@
+.newarrivalsmp{
+    width:98%;
+    margin-left:6px;
+    padding: 10px;
+    
+
+}
+.mainsnglerwfds{
+    
+    padding: 10px;
+}
+.newAtext{
+    text-align: center;
+    font-size: 25px;
+}
+.explore{
+    text-align: center;
+    color: blueviolet;
+    text-decoration: underline;
+    margin: 10px;
+}
+.gangs{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.gangstext{
+    text-align: center;
+    font-size: 25px;
+    padding: 10px;
+}
+.gangsImage{
+    width: 100%;
+    height: auto;
+    
+}
+.gangsImage > img{
+    float: left;
+  width: 50%;
+  padding: 1px;
+  
+}
+
+.cattext{
+    border: 1px solid red;
+    height: 10px;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 25px;
+}
+
+   
