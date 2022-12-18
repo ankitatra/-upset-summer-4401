@@ -12,14 +12,18 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import Footer from "../Components/Footer";
+import Navbar from "../Components/Navbar";
+import "../css/Hidden.css"
 export const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowClick = () => setShowPassword(!showPassword);
 
   return (
-    <Box
+    <>
+      <Navbar />
+      <Box
       bgGradient="linear(to-t, yellow.100, white)"
       h={"100vh"}
     >
@@ -66,5 +70,8 @@ export const Login = () => {
         </form>
       </Box>
     </Box>
+      <Footer />
+    </>
+    
   );
 };

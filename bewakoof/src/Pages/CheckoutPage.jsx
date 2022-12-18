@@ -1,6 +1,8 @@
-import react from "react";
+import React from "react";
+import Footer from "../Components/Footer";
+import Navbar from "../Components/Navbar";
 import { RecentView } from "../Components/SingleProduct/RecentView";
-
+import "../css/Hidden.css"
 import SingleProductDetial from "../Components/SingleProduct/SingleProductDetails";
 
 
@@ -8,9 +10,10 @@ import SingleProductDetial from "../Components/SingleProduct/SingleProductDetail
 export const CheckoutPage = () => {
   return (
     <div>
-      {/* checkoutpage */}
+    <Navbar/>
       <SingleProductDetial />
       <RecentView/>
+      <Footer />
     </div>
   );
 };
