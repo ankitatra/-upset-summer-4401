@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import { useLocation, useParams, useSearchParams } from "react-router-dom"
 import { getProducts } from '../Redux/Appreducer/action'
@@ -6,13 +6,30 @@ import SingleProductCom from './SingleProductCom'
 import "../css/Products.css"
 export const Products = () => {
     const dispatch=useDispatch()
+    const limitRef=useRef(2000)
     const location=useLocation()
     const [searchParams]=useSearchParams()
    const {cat:Cat}=useParams()
+   console.log(useParams())
    const initCat=Cat==="Men"?"mensdata":Cat==="Women"?"womensData":"mobiles"
     const {Products,isLoading}=useSelector((store)=>store.AppReducer)
-    
     const [cat,setCat]=useState(initCat||"mensdata")
+
+  //   useEffect(() => {
+      
+  //     window.addEventListener("scroll",()=>limitData());
+
+  //     return () => window.removeEventListener("scroll", limitData)
+  // },[window.scrollY]);
+
+// const limitData=()=>{
+
+// //   if(window.scrollY>limitRef.current){
+// //     setLimit(limit+30)
+// //     limitRef.current+=500
+// //   }
+// // console.log(limit,window.scrollY)
+// }
     useEffect(()=>{
 
       if(location ||Products.length===0){
@@ -27,7 +44,7 @@ export const Products = () => {
                   _sort:sortBy&&"discountedPriceText",
                   _order: sortBy,
                   rating_gte:ratingBy,
-                  off_gte:off,
+                  off_gte:off
                  }
           }
       dispatch(getProducts(getBookParams,cat))

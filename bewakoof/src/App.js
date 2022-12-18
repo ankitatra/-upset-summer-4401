@@ -1,8 +1,10 @@
-import logo from './logo.svg';
+
 import './App.css';
-import MainRoutes from "./MainRoutes/MainRoutes"
-import { Men } from './Pages/Men';
+
 import Navbar from './Components/Navbar';
+import { Signup } from './Pages/Signup';
+import MainRoutes from "./MainRoutes/MainRoutes"
+
 
 
 function App() {
@@ -12,9 +14,19 @@ function App() {
   return (
 
      <div className="App">
-    <MainRoutes />
+
+
   
     
+
+
+
+
+    <MainRoutes/>
+
+
+
+
     </div>
 
 

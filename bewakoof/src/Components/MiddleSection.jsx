@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import "./MiddleSection.css"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from 'react-router-dom';
 
 
 
@@ -24,16 +25,17 @@ const MiddleSection = () => {
       };
   return (
     <>
-     <div className='sliderbox'>
-        <Slider {...settings} >
+    <Link to="/Men">
+    <div className='sliderbox'>
+        <Slider {...settings} className="slidesetting" >
           <div className='slide_image'>
-            <img src="https://images.bewakoof.com/uploads/grid/app/oof-sale-endstoday-1x1-common-1671109728.gif" alt="" />
+            <img src="https://images.bewakoof.com/uploads/grid/app/henley-full-sleeves-1x1--1--1669702768.gif" alt="" />
           </div>
           <div className='slide_image'>
           <img src="https://images.bewakoof.com/uploads/grid/app/revised-buy3-banner-1670840080.jpg" alt="" />
           </div>
           <div className='slide_image'>
-          <img src="https://images.bewakoof.com/uploads/grid/app/revamped-banner-1x1-copy-04-1670505869.jpg" alt="" />
+          <img src="https://images.bewakoof.com/uploads/grid/app/revamped-banner-1x1-Accessories-HotNewArrivals-1668662727.gif" alt="" />
           </div>
           <div className='slide_image'>
           <img src="https://images.bewakoof.com/uploads/grid/app/winter-looks-common-1670589179.jpg" alt="" />
@@ -44,10 +46,13 @@ const MiddleSection = () => {
         </Slider>
       </div>
 
+    </Link>
+    
      <div className='banner'>
         <img src="https://images.bewakoof.com/uploads/grid/app/Desktop-Strip-6-1669115141.jpg" alt="" />
      </div>
      <div>
+     <Link to="/Women">
      <div className='sliderbox2'>
         <Slider {...settings1} >
           <div className='slide_image'>
@@ -76,6 +81,8 @@ const MiddleSection = () => {
           </div>
         </Slider>
       </div>
+     </Link>
+     
      </div>
      <div className='designofweek'>
         <img src="https://images.bewakoof.com/uploads/grid/app/Desktop-Split-Men-1670938024.jpg" alt="" />

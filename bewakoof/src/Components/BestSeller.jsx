@@ -20,7 +20,7 @@ const BestSeller = () => {
      }
      const navigate=useNavigate()
      const handleclick=(item)=>{
-      navigate("/mens")
+      navigate("/Women")
   
      }
      const settings = {
@@ -37,9 +37,9 @@ const BestSeller = () => {
     <>
      <div>
     <div className='newAtext'>
-        <h1>New Arrivals</h1>
+        <h1>Best Sellers</h1>
     </div>
-    <div className='newarrivalsmp'>
+    <div className='newarrivalsmp' onClick={handleclick}>
     <Slider {...settings} >
     {productdatalist.map((item)=>{
         {/* console.log(item) */}

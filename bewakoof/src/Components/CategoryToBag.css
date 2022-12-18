@@ -9,6 +9,11 @@
     font-weight: bold;
 }
 .boy-girl{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
     justify-content: space-between;
+}
+
+.boy-girl img{
+    width: 100%;
 }

@@ -1,15 +1,18 @@
 import { Box, Button, Flex, Text, useToast } from "@chakra-ui/react";
 import axios from "axios";
 
+
+
 import { CgShoppingBag } from "react-icons/cg";
 import { CiHeart } from "react-icons/ci";
 import Size from "./Size";
 import ProductOffer from "./ProductOffer";
-// import { getLocalData } from "../../Utils/LocalStorage";
+
 import SingleProductImg from "./SingleProductImg";
 import SingleProductSlider from "./SingleProductSlider";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import {
   Navigate,
   useLocation,
@@ -18,6 +21,10 @@ import {
 } from "react-router-dom";
 import { getProducts } from "../../Redux/Appreducer/action";
 import { Rating } from "../Cart/Rating";
+
+import { Navigate, useParams } from "react-router-dom";
+import { getProducts } from "../../Redux/Appreducer/action";
+
 
 // const data = [
 //   {
@@ -52,6 +59,30 @@ export default function SingleProductDetial() {
   const [size, setsize] = useState("");
 
   const Toast = useToast();
+  const dispatch = useDispatch();
+  const { id, cat } = useParams();
+  const Products = useSelector((store) => store.AppReducer.Products);
+  const [currentProduct, setCurrentProduct] = useState({});
+  console.log(currentProduct);
+  const [data, setData] = useState([{}]);
+  useEffect(() => {
+    if (Products.length === 0) {
+      dispatch(getProducts({}, cat));
+    }
+  }, [Products.length, dispatch]);
+  useEffect(() => {
+    if (id) {
+      const currentProduct = Products.find((item) => item.id === Number(id));
+      currentProduct && setCurrentProduct(currentProduct);
+    }
+  }, [id, Products]);
+  console.log(currentProduct);
+
+  useEffect(() => {
+    setData(currentProduct);
+  }, [currentProduct, id, Products]);
+  console.log("data", data);
+
 
   const dispatch = useDispatch();
   const { id, cat } = useParams();
@@ -119,6 +150,14 @@ export default function SingleProductDetial() {
   //   delete data._id;
   //   data.size = size;
   //   data.qty = 1;
+
+
+  // const AddCart = (data) => {
+  //   console.log("data", data._id);
+  //   delete data._id;
+  //   data.size = size;
+  //   data.qty = 1;
+
 
   //   const payload = data;
   //   return axios
@@ -242,7 +281,11 @@ export default function SingleProductDetial() {
         <br />
         <Flex gap={"10px"}>
           <Button
+
             onClick={HandleCart}
+
+            // onClick={() => AddCart(data)}
+
             leftIcon={<CgShoppingBag />}
             bg={"rgb(253,216,53)"}
             colorScheme="rgb(253,216,53)"
