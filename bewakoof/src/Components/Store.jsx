@@ -4,6 +4,7 @@ import { Products } from './Products'
 import styles from "../css/store.module.css"
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import Navbar from './Navbar'
 
 export const  Store= () => {
 const Total=useSelector((store)=>store.AppReducer.Products.length)
@@ -29,11 +30,11 @@ const {cat}=useParams()
 
   return (
     <>
-   
+    <Navbar/>
     <div className={styles.main}>
 {/*.............................................................  */}
       <div className={styles.location}>
-         <p><span>Home</span> / <span>{cat} Clothing</span></p>
+         <p><span>Home</span> / <span>{cat} </span></p>
      </div>
 
 {/*.............................................................  */}
@@ -42,7 +43,7 @@ const {cat}=useParams()
    
      <div className={styles.headingDiv}>
        
-             {cat} Clothing <span>({Total})</span>
+             {cat} {cat=="Mobile"?"Accessories":"Clothing"} <span>({Total})</span>
          
      </div>
 
