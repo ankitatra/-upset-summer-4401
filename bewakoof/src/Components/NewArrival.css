@@ -2,7 +2,7 @@
     width:98%;
     margin-left:6px;
     padding: 10px;
-    
+    background-image: url(https://cdn5.vectorstock.com/i/1000x1000/86/64/abstract-blue-wave-set-on-transparent-background-vector-10778664.jpg);
 
 }
 .mainsnglerwfds{
@@ -20,6 +20,7 @@
     margin: 10px;
 }
 .gangs{
+    
     text-align: center;
     margin-bottom: 20px;
 }
@@ -28,20 +29,21 @@
     font-size: 25px;
     padding: 10px;
 }
-.gangsImage{
-    width: 100%;
-    height: auto;
-    
-}
 .gangsImage > img{
-    float: left;
-  width: 50%;
-  padding: 1px;
+    
+    width:100%;
+   
   
+}
+.gangsImage{
+    width:100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+   
 }
 
 .cattext{
-    border: 1px solid red;
+    
     height: 10px;
     text-align: center;
     padding-top: 20px;

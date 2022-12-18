@@ -1,22 +1,22 @@
-.container{
+  .container{
     display: none;
 
 }
 .firstpart{
     display: flex;
 
-}
+}  
 
-/* @media (min-width: 300px) and (max-width: 999px){
+ @media (min-width: 300px) and (max-width: 999px){
 
     .container{
         width: 100%;
         background-color:#FDD835 ;
         font-size: 25px;
-        display: flex;
+        display:none;
         justify-content: space-between;
         flex-wrap: wrap;
         padding: 5px;
         align-items: center;
     }
-} */
+} 

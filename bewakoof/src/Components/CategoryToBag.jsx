@@ -13,9 +13,7 @@ const CategoryToBag = () => {
            <img src="https://images.bewakoof.com/uploads/grid/app/category-box-new-joggers-1668773245.jpg" alt="" />
            <img src="https://images.bewakoof.com/uploads/grid/app/category-box-new-printed-tshirts-1668773246.jpg" alt="" />
         </div>
-    </div>
-
-      
+    </div> 
     </>
   )
 }
