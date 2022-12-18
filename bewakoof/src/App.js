@@ -6,6 +6,7 @@ import { Signup } from './Pages/Signup';
 import MainRoutes from "./MainRoutes/MainRoutes"
 
 
+
 function App() {
 
 
@@ -15,8 +16,14 @@ function App() {
      <div className="App">
 
 
+  
+    
+
+
+
 
     <MainRoutes/>
+
 
 
 

@@ -3,9 +3,10 @@
 
 
 
-.firstpart{
-    display: flex;
 
+.firstpart{
+  display: none;
+   
 
 }
 

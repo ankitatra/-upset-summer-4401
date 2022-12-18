@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import{useLocation, useNavigate} from "react-router-dom"
 // import {
 //   Popover,
 //   PopoverTrigger,
@@ -89,30 +90,40 @@ export const AddressForm = () => {
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
   const [pincode, setPincode] = useState("");
-
-
-  const handleAddress=()=>{
-    console.log("hii")
-    const data={
-      fullname:fullname,
-      country:country,
-      state:state,
-      city:city,
-      pincode:pincode
-
-    }
-    console.log(data)
-  }
+  const navigate=useNavigate()
+  const location=useLocation()
+  const handleAddress = () => {
+    console.log("hii");
+    const data = {
+      fullname: fullname,
+      country: country,
+      state: state,
+      city: city,
+      pincode: pincode,
+    };
+    console.log(data);
+    localStorage.setItem("address",JSON.stringify(data))
+    console.log(location)
+    location.pathname="./Payment"
+    navigate("./Payment")
+  };
   return (
     <>
-      <Button onClick={onOpen}>Open Modal</Button>
-      {/* <Button ml={4} ref={finalRef}>
-        I'll receive focus on close
-      </Button> */}
+      <Button
+       width={"300px"}
+      //  paddingLeft={15}
+      pdddingRight={100}
+        backgroundColor={"rgba(66,162,161)"}
+        onClick={onOpen}
+      >
+        Address
+      </Button>
 
       <Modal
-        initialFocusRef={initialRef}
-        finalFocusRef={finalRef}
+        backgroundColor={"yellow"}
+
+        // initialFocusRef={initialRef}
+        // finalFocusRef={finalRef}
         isOpen={isOpen}
         onClose={onClose}
       >
@@ -171,7 +182,7 @@ export const AddressForm = () => {
           </ModalBody>
 
           <ModalFooter>
-            <Button  onClick={handleAddress}colorScheme="blue" mr={3}>
+            <Button onClick={handleAddress} colorScheme="blue" mr={3}>
               Save
             </Button>
             <Button onClick={onClose}>Cancel</Button>

@@ -8,9 +8,9 @@ import SingleProductDetial from "../Components/SingleProduct/SingleProductDetail
 export const CheckoutPage = () => {
   return (
     <div>
-      checkoutpage
-      {/* <SingleProductDetial />
-      <RecentView/> */}
+      {/* checkoutpage */}
+      <SingleProductDetial />
+      <RecentView/>
     </div>
   );
 };

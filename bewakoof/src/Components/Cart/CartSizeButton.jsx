@@ -18,7 +18,7 @@ import { FiChevronDown } from "react-icons/fi";
 const CartSizeButton = () => {
 //   console.log(size);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [size, setSize] = useState("");
+  const [size, setSize] = useState("S");
   return (
     <Box>
       <Button

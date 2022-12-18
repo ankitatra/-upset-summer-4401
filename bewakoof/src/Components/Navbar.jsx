@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Navbar.css";
 import { HiOutlineDevicePhoneMobile} from "react-icons/hi2";
 import {CiSearch} from "react-icons/ci"
@@ -12,7 +12,6 @@ import {BsBag, BsHeart} from "react-icons/bs"
 
 const Navbar = () => {
     const [sticky , setSticky] = useState("");
-    const navigate=useNavigate()
     useEffect(() => {
         window.addEventListener("scroll",stickNavbar);
         return () => window.removeEventListener("scroll", stickNavbar)
@@ -24,8 +23,9 @@ const Navbar = () => {
             box > 200 ? setSticky("sticky_nav"):setSticky("")
         }
     };
+
     return(
-        <div className={`navbar ${sticky}`}>
+        <div className={`navbar ${sticky} SFDAREWRF`}>
             <BottomNavbar />
         </div>
 
@@ -99,7 +99,7 @@ const Navbar = () => {
   //   "Socks",
   //   "Mugs",
   // ];
-  const img = [
+  const imgArr = [
     "https://images.bewakoof.com/nav_menu/Circle-icon-1670577361.png",
     "https://images.bewakoof.com/nav_menu/icon-winter-1665155950.png",
     "https://images.bewakoof.com/nav_menu/icon-168-1668158001.png",
@@ -143,7 +143,7 @@ const Navbar = () => {
       <>
         <p className="heading">Special</p>
         <ul>
-          {img.map((item) => {
+          {imgArr.map((item) => {
             <li className="itemlist">
                 <img  height="60px" width="60px"src={item} alt="" />
             </li>;
@@ -168,7 +168,9 @@ const Navbar = () => {
 
   const BottomNavbar = () => {
     let str =JSON.parse(localStorage.getItem("str"))
-
+    const navigate=useNavigate()
+    const searchRef=useRef()
+     
     const [data,setData] = useState("")
 
     const getCartData = () => {
@@ -184,12 +186,26 @@ const Navbar = () => {
         getCartData();
     },[]);
   
+
+    const handleKeyDown=(e)=>{
+if(e.key=="Enter"&&searchRef.current.value){
+  navigate(`/${searchRef.current.value}`)
+}
+    }
+
   return (
     <>
       <div>
         <div className="top_container">
-          <div className="middle_container">
-            <div className="right_container">
+         
+         
+         
+           <div className="middle_container">
+            
+            
+            
+            
+             <div className="right_container">
               <p className="content">Offers</p>
               <p className="content">Fanbook</p>
               <div className="downapp">
@@ -201,27 +217,59 @@ const Navbar = () => {
 
               <p className="content">TriBe Membership</p>
             </div>
+           
+           
+           
             <div className="left_container">
               <p className="content">Contact Us</p>
               <p className="content">Track Order</p>
             </div>
+
+
+
+
           </div>
+      
+      
+      
+      
         </div>
       </div>
-      <div className="container">
+
+
+
+
+      {/* ........................ */}
+      <div className="container1">
+
+
+
+        
         <div className="mid_container">
-          <div className="firstpart">
+         
+         
+          <div className="firstpart1">
            <Link to="/"><img src={logo} alt="logo" /></Link> 
             
           </div>
+
+
           <div className="secondpart">
-            <div className="nav_category">
+           
+           
+            <div className="nav_category1">
+              
+              
               <div className="nav_dropdown">
-              <Link></Link>
-                <p>Men</p>
-                <div>
-                  <div className="dropdown_content1">
-                    <div className="hover_container">
+               
+               
+                <Link></Link>
+                <p onClick={()=>navigate("/Men")}>Men</p>
+               
+                  <div>
+                    
+                     <div className="dropdown_content1" >
+                    <div className="hover_container" >
                       <div>
                         <TopwearList
                           TopwearData={TopwearData}
@@ -234,69 +282,112 @@ const Navbar = () => {
                       <div>
                         <TopwearList TopwearData={TopwearData} TopWear={WinterWear} />
                       </div>
-                      <div className="line"></div>
+                      <div className="line">
+                        
+                      </div>
                       <div>
                         <SpecialdataImg />
                       </div>
                     </div>
+                     </div>
+
                   </div>
-                </div>
               </div>
+              
+              
               <div className="nav_dropdown">
                 {/* <Link to=""></Link> */}
-                <p>Women</p>
+                <p onClick={()=>navigate("/Women")}>Women</p>
                 <div>
-                  <div className="dropdown_content2">
-                    <div className="hover_container">
+                 
+                   <div className="dropdown_content2" >
+                   
+                     <div className="hover_container">
+                    
+                    
                       <div>
                         <TopwearList
                           TopwearData={TopwearData}
                           TopWear={TopWear}
                         />
                       </div>
+                     
                       <div>
                         <TopwearList TopwearData={TopwearData} TopWear={BottomWear} />
                       </div>
+                     
+                     
                       <div>
                         <TopwearList TopwearData={TopwearData} TopWear={WinterWear} />
                       </div>
+                     
+                     
                       <div className="line"></div>
+                      
+                      
                       <div>
                         <SpecialdataImg />
                       </div>
+
+
                     </div>
-                  </div>
+
+
+
+                    </div>
                 </div>
               </div>
+
+
               <div className="nav_dropdown">
                 {/* <Link to=""></Link> */}
-                <p>Mobile Covers</p>
+                <p onClick={()=>navigate("/Mobile")}>Mobile Covers</p>
                 <div>
+                
+                
                   <div className="dropdown_content3">
-                  <p>Popular</p>
+                  {/* <p>Popular</p> */}
+                   
+                   
                     <div className="hover_container">
+                     
+                     
                       <div>
                         <TopwearList
                           TopwearData={BrandAData}
                           TopWear={BrandA}
                         />
                       </div>
+                    
+                    
                       <div>
                         <TopwearList TopwearData={BrandOData} TopWear={BrandO} />
                       </div>
+                    
+                    
                       <div>
                         <TopwearList TopwearData={BrandRData} TopWear={BrandR} />
                       </div>
+                     
+                     
                       <div>
                         <TopwearList TopwearData={BrandSData} TopWear={BrandS} />
                       </div>
+                     
+                     
                       <div>
                         <TopwearList TopwearData={BrandVData} TopWear={BrandV} />
                       </div>
+                   
+                   
                       <div>
                         <TopwearList TopwearData={BrandXData} TopWear={BrandX} />
                       </div>
+                     
+                     
                       <div className="line"></div>
+                      
+                      
                       <div>
                         <p>Other Brands</p>
                         <ul>
@@ -305,28 +396,38 @@ const Navbar = () => {
                           <li className="itemlist">Moto</li>
                         </ul>
                       </div>
+                    
+                    
                       <div>
                       <img src="https://images.bewakoof.com/nav_menu/bewakoof-online-fashion-COTM-mobile-cover-navigation-box-desktop-1612275399.jpg" alt="PhoneImage" />
                       </div>
+
+
                     </div>
-                  </div>
                 </div>
+               </div>
               </div>
-            </div>
-              <div>
+            
+          </div>
+              
+           
+              <div className="DSFASAFRew">
+                
+                
                 <div className="input">
-                <div className="input1">
-                <span><CiSearch /></span>
-                <input type="text" className="input-box" placeholder="Search Here"/>
-                </div>
+                    <div className="input1">
+                       <span><CiSearch /></span>
+                       <input type="text" className="input-box" ref={searchRef} onKeyDown={handleKeyDown} placeholder="Search by product, category or callection"/>
+                    </div>
+                
                  <div className="login">
                  
-                  <span style={{ fontSize: "20px", fontWeight: "lighter" }}>
-
-                  </span>
-                  <Link>
-                  <span>
-                    {str ? (
+                    {/* <span style={{ fontSize: "20px", fontWeight: "lighter" }}>
+                        </span> */}
+                    
+                    <Link>
+                          <span>
+                             {str ? (
                       <Box disabled={true} fontSize="12px" className="drop">
                         <Heading  fontSize="12px">
                           <AvatarGroup spacing="1rem">
@@ -368,29 +469,45 @@ const Navbar = () => {
                       "Login"
                     )}
                   </span>
-                  </Link> 
+                   </Link> 
+
+                  <Link>
                   <span className="icon">
                     <BsHeart />
                   </span>
+                  </Link>
+
+
                   <Link>
                     <span><BsBag/></span>
                     <span>
                       {}
                     </span>
                   </Link>
+
+
+                 </div>
                 </div>
-              </div>
+               </div>
           </div>
         </div>
-      </div>
+
+
+
     </div>
-    <div className="nav-category">
-      <Link><h1>LIVE NOW!</h1></Link>
-     <h1><Link to="/Men">MEN</Link></h1>
-      <h1>WOMEN</h1>
-      <h1>ACCESSORIES</h1>
-      <h1>WINTERWEAR</h1>
+
+      {/* ........................ */}
+
+
+    <div className="nav-category1">
+    <h1 onClick={()=>navigate("/")}>LIVE NOW!</h1>
+     <h1 onClick={()=>navigate("/Men")}>MEN</h1>
+      <h1  onClick={()=>navigate("/Women")}>WOMEN</h1>
+      <h1  onClick={()=>navigate("/Mobile")}>ACCESSORIES</h1>
+      {/* <h1>WINTERWEAR</h1> */}
     </div>
+
+
     </>
  )
  }

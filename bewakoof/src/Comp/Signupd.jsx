@@ -97,10 +97,9 @@ const Signupd = () => {
       <Box
         w="50%"
         h="100vh"
-        // bgGradient="linear(to-t, yellow.100, white)"
+        bgGradient="linear(to-t, yellow.100, white)"
       >
         <Image
-          // m={{ base: "50vh 0 0 0", md: "0", lg: "0" }}
           m={"50px auto"}
           src="https://images.bewakoof.com/web/desktop-sign-up-banner--1623760676.png"
           w={"350px"}
@@ -112,6 +111,7 @@ const Signupd = () => {
         justifyContent="center"
         w="50%"
         bg={"white"}
+        m='10'
       >
         <form w="80%" onSubmit={handleSubmit}>
           <FormControl>
@@ -135,7 +135,9 @@ const Signupd = () => {
               variant="flushed"
             />
             <InputGroup w="80%">
-              <InputLeftElement mt={"5"}>
+              <InputLeftElement mt={"6"}
+              w='100px'
+              >
                 <Select>
                   <option value="+91">+91</option>
                   <option value="+971">+971</option>
@@ -149,6 +151,7 @@ const Signupd = () => {
                 value={mobile}
                 onChange={(e) => setMobile(e.target.value)}
                 mt={4}
+                ml={70}
                 w="100%"
                 h={"50px"}
                 fontSize="15px"

@@ -1,4 +1,4 @@
-
+ 
 .main{
     padding:10px 100px;
     color: #2d2d2d;
@@ -7,6 +7,7 @@
 
 
 .location{
+
     display: flex;
     font-size: 12px;
     line-height: 12px;
@@ -20,7 +21,6 @@
     display: flex;
     gap:10px;
 }
-
 .headingDiv{
    font-weight: 700;
    width: max-content;
@@ -31,6 +31,7 @@
 
 
 }
+
 
 
 .headingDiv:before, .headingDiv:after {
@@ -50,6 +51,7 @@
     border-bottom: 2px solid #fbd139; 
  
 }
+
 .headingDiv h1{
     margin: 0px;
     margin-bottom: 8px;
@@ -75,10 +77,10 @@
   top: 10%;
   
 }
-
 .mainStore>:last-child{
 padding: 20px;
 }
+
 
 .scrollTOpFADS{
     top: 90%;
@@ -92,6 +94,7 @@ padding: 20px;
 .scrollTOpFADSNone{
     display: none;
 }
+
 .scrollTOpFADS i{
     font-size: 32px;
     border-radius: 50px;
@@ -100,6 +103,7 @@ padding: 20px;
    color: #c09701;
    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 18px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
+
 
 @media only screen and (max-width: 1020px) {
     .mainStore{

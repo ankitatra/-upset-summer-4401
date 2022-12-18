@@ -7,10 +7,10 @@ import "../css/Products.css"
 export const Products = () => {
     const dispatch=useDispatch()
     const limitRef=useRef(2000)
+    const xref=useRef()
     const location=useLocation()
     const [searchParams]=useSearchParams()
    const {cat:Cat}=useParams()
-   console.log(useParams())
    const initCat=Cat==="Men"?"mensdata":Cat==="Women"?"womensData":"mobiles"
     const {Products,isLoading}=useSelector((store)=>store.AppReducer)
     const [cat,setCat]=useState(initCat||"mensdata")
@@ -30,6 +30,19 @@ export const Products = () => {
 // //   }
 // // console.log(limit,window.scrollY)
 // }
+
+
+//.......................
+// useEffect(()=>{
+//   var D = document;
+// console.log( D.body.scrollHeight,window.scrollY)
+// },[window.scrollY])
+//.......................
+
+useEffect(()=>{
+setCat(initCat)
+},[Cat])
+
     useEffect(()=>{
 
       if(location ||Products.length===0){
@@ -49,9 +62,8 @@ export const Products = () => {
           }
       dispatch(getProducts(getBookParams,cat))
     }
-
     
-  },[Products.length,dispatch,location.search])
+  },[Products.length,dispatch,location.search,cat])
 
 
 
@@ -74,7 +86,7 @@ export const Products = () => {
   wrapperClass />
     </div>
 } */}
-     {  !isLoading&& <div className='productsDivprdasdfsd'>
+     {  !isLoading&& <div ref={xref} className='productsDivprdasdfsd'>
           {
             Products.map((el)=>{
              return <SingleProductCom key={el.id+cat} {...el} cat={cat}/>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SingleProductImg from "./SingleProductImg";
 
 const imgArray = [
@@ -8,15 +8,28 @@ const imgArray = [
   "https://images.bewakoof.com/t1080/gojo-domain-oversized-fit-t-shirt-520746-1658344299-4.jpg",
   "https://images.bewakoof.com/t1080/gojo-domain-oversized-fit-t-shirt-520746-1658344305-5.jpg",
 ];
-const SingleProductSlider = ({ data }) => {
-  const [url, setUrl] = useState(imgArray[0]);
+
+const SingleProductSlider = ( {data,im} ) => { 
+   
+  
+
+  let d=data
+  const arr=im
+  console.log("d",typeof d)
+  const [url, setUrl] = useState(d);
+  useEffect(()=>{
+    setUrl(d)
+  
+  },[data])
+  console.log("imageeeeeeee",arr)
+  console.log("urlll",url)
   return (
     <>
       <div>
         <div style={{ display: "flex" }} className="px-2 py-2">
           {/* <div className="flex"> */}
           <div className="w-[20%]">
-            {imgArray.map((img, i) => {
+          {im && im.map((img, i) => {
               return (
                 <div
                   style={{ margin: "10px", width: "100px" }}
@@ -25,6 +38,7 @@ const SingleProductSlider = ({ data }) => {
                 >
                   <img
                     style={{ width: "100%" }}
+
                     className="w-full"
                     src={img}
                     alt=""
