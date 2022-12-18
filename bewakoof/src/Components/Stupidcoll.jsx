@@ -4,7 +4,7 @@ import "./stupidcoll.css"
 const Stupidcoll = () => {
   return (
     <>
-        <div classname="stupid">
+        <div className="stupid">
     <div>
         <h2 className="stutext">THE STOOPID COLLECTION</h2>
     </div>
