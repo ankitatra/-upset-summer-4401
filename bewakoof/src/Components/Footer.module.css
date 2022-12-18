@@ -52,6 +52,8 @@
 .tail{
     color: rgb(169, 48, 175);
     font-size: 13px;
+    list-style-type: none;
+   
     
 }
 .box{
@@ -66,7 +68,7 @@
     
 }
 .app{
-    border:1px solid red;
+   
     height: auto;
     width: 100%;
     margin-top: 20px;

@@ -1,7 +1,8 @@
 import * as types from "./actionType";
 
 const initialState = {
-  isAuth: false,
+  isAuth:JSON.parse(localStorage.getItem("isAuth"))|| false,
+
   isLoading: false,
   isError: false,
 };
@@ -12,7 +13,8 @@ const AuthReducer = (state = initialState, action) => {
     case types.LOGIN_REQUEST:
       return { ...state, isLoading: true };
     case types.LOGIN_SUCCESS:
-      return { ...state, isLoading: false, isAuth: true };
+      localStorage.setItem("isAuth",JSON.stringify(true))
+      return { ...state, isLoading: false, isAuth: true  };
     case types.LOGIN_FAILURE:
       return { ...state, isLoading: false, isError: true };
 

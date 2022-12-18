@@ -1,6 +1,6 @@
 import React from 'react'
 import "../css/SingleProductCom.css"
-import { Link, Navigate, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const SingleProductCom = ({actualPriceText,cat,brand_namez,clr_shade_4,discount_price_box,discountedPriceText,id,off,productImgTagSrc,rating,size}) => {
   const navigate=useNavigate()

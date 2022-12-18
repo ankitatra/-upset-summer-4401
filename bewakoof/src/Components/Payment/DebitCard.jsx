@@ -16,6 +16,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+import "../../css/Hidden.css"
 import { useNavigate } from "react-router-dom";
 import { theme } from "./ThemeLabel";
 
@@ -120,7 +121,7 @@ export const DebitCard = () => {
         isClosable: true,
       });
       setTimeout(() => {
-        navigate("/Order_successfull");
+        navigate("/Ordersuccessfull");
       }, [2000]);
     }
   };

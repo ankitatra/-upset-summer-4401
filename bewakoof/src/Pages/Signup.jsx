@@ -15,6 +15,9 @@ import { FcGoogle } from "react-icons/fc";
 import { GrUserAdmin } from "react-icons/gr";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
+import "../css/Hidden.css"
 
 const Signup = () => {
   const [mobile, setMobile] = useState("");
@@ -31,7 +34,9 @@ const Signup = () => {
   };
 
   return (
-    <Flex>
+    <>
+    <Navbar />
+      <Flex>
       <Box
         w="50%"
         h="100vh"
@@ -137,6 +142,9 @@ const Signup = () => {
         </Text>
       </Flex>
     </Flex>
+    <Footer />
+    </>
+    
   );
 };
 

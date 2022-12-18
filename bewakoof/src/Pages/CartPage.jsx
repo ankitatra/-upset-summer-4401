@@ -1,18 +1,21 @@
 
-import react from "react";
-import { AddressForm } from "../Components/Cart/Address";
-import { CartProduct } from "../Components/Cart/cardProduct ";
+import React from "react";
+
 import { Cart } from "../Components/Cart/Cart";
-import { Coupons } from "../Components/Cart/Coupons";
+import Footer from "../Components/Footer";
+import Navbar from "../Components/Navbar";
+import "../css/Hidden.css"
 
 
 export const CartPage = () => {
   return (
     <div>
+    <Navbar/>
    {/* <AddressForm/> */}
    {/* <CartProduct/> */}
    {/* <Coupons/> */}
    <Cart/>
+   <Footer />
     
     </div>
   );

@@ -5,7 +5,8 @@ import styles from "../css/store.module.css"
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import Navbar from './Navbar'
-
+import Footer from './Footer'
+import "../css/Hidden.css"
 export const  Store= () => {
 const Total=useSelector((store)=>store.AppReducer.Products.length)
 const [scrollBtnSTate,setScrollBtnSTate]=useState(false)
@@ -68,7 +69,7 @@ const {cat}=useParams()
  </div>
  
     </div>
-    
+    <Footer />
     </>
   )
 }

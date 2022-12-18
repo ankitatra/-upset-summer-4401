@@ -22,11 +22,14 @@ import {
   PinInputField,
   HStack,
 } from "@chakra-ui/react";
+import "../css/Hidden.css"
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { login } from "../Redux/Authreducer/action";
+import Footer from "../Components/Footer";
+import Navbar from "../Components/Navbar";
 
 const Signupd = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -55,9 +58,8 @@ const Signupd = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email && password && name && mobile) {
-      dispatch(login({ name, mobile, email, password })).then((r) => {
-        onGetOtpOpen();
-      });
+      
+      onGetOtpOpen();
     }
   };
 
@@ -71,6 +73,7 @@ const Signupd = () => {
   };
 
   const otpCheck = (e) => {
+
     let arr = otp;
     if (!e.target.value) {
       arr.splice(e.target.name, 1);
@@ -83,6 +86,9 @@ const Signupd = () => {
   const handleVerifyOtp = () => {
     onVerifyOtpClose();
     if (otp.join("") == otpVal) {
+      dispatch(login({ name, mobile, email, password })).then((r) => {
+       
+      });
       alert("Your mobile number has been verified successfully");
       navigate(comingFrom, { replace: true });
     } else {
@@ -93,7 +99,9 @@ const Signupd = () => {
   };
 
   return (
-    <Flex>
+    <>
+      <Navbar />
+      <Flex>
       <Box
         w="50%"
         h="100vh"
@@ -285,6 +293,9 @@ const Signupd = () => {
         </form>
       </Flex>
     </Flex>
+      <Footer />
+    </>
+    
   );
 };
 

@@ -22,8 +22,8 @@ import {
 import { getProducts } from "../../Redux/Appreducer/action";
 import { Rating } from "../Cart/Rating";
 
-import { Navigate, useParams } from "react-router-dom";
-import { getProducts } from "../../Redux/Appreducer/action";
+
+
 
 
 // const data = [
@@ -57,33 +57,7 @@ import { getProducts } from "../../Redux/Appreducer/action";
 export default function SingleProductDetial() {
   // const [token, setToken] = useState(getLocalData("userToken"));
   const [size, setsize] = useState("");
-
   const Toast = useToast();
-  const dispatch = useDispatch();
-  const { id, cat } = useParams();
-  const Products = useSelector((store) => store.AppReducer.Products);
-  const [currentProduct, setCurrentProduct] = useState({});
-  console.log(currentProduct);
-  const [data, setData] = useState([{}]);
-  useEffect(() => {
-    if (Products.length === 0) {
-      dispatch(getProducts({}, cat));
-    }
-  }, [Products.length, dispatch]);
-  useEffect(() => {
-    if (id) {
-      const currentProduct = Products.find((item) => item.id === Number(id));
-      currentProduct && setCurrentProduct(currentProduct);
-    }
-  }, [id, Products]);
-  console.log(currentProduct);
-
-  useEffect(() => {
-    setData(currentProduct);
-  }, [currentProduct, id, Products]);
-  console.log("data", data);
-
-
   const dispatch = useDispatch();
   const { id, cat } = useParams();
   console.log(id, cat);
