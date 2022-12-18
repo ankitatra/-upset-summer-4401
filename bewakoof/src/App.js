@@ -1,9 +1,9 @@
 
 import './App.css';
-import MainRoutes from './MainRoutes/MainRoutes';
 
-
-
+import Navbar from './Components/Navbar';
+import { Signup } from './Pages/Signup';
+import MainRoutes from "./MainRoutes/MainRoutes"
 
 
 function App() {
@@ -15,7 +15,9 @@ function App() {
      <div className="App">
 
 
-      <MainRoutes />
+
+    <MainRoutes/>
+
 
 
     </div>
