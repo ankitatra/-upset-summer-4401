@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Button, Flex, Text, useToast, Image } from "@chakra-ui/react";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+
 import { FaStar } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 export const RecentView = () => {

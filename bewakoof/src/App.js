@@ -4,6 +4,7 @@ import MainRoutes from "./MainRoutes/MainRoutes"
 import { Men } from './Pages/Men';
 import Navbar from './Components/Navbar';
 
+
 function App() {
 
 
@@ -12,6 +13,8 @@ function App() {
 
      <div className="App">
     <MainRoutes />
+  
+    
     </div>
 
 

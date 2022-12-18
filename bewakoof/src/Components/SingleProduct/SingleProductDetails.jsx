@@ -1,17 +1,23 @@
 import { Box, Button, Flex, Text, useToast } from "@chakra-ui/react";
 import axios from "axios";
-import { useState } from "react";
+
 import { CgShoppingBag } from "react-icons/cg";
 import { CiHeart } from "react-icons/ci";
 import Size from "./Size";
 import ProductOffer from "./ProductOffer";
-import { getLocalData } from "../../Utils/LocalStorage";
+// import { getLocalData } from "../../Utils/LocalStorage";
 import SingleProductImg from "./SingleProductImg";
 import SingleProductSlider from "./SingleProductSlider";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useParams } from "react-router-dom";
-import { getProducts } from "../Redux/Appreducer/action";
+import {
+  Navigate,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
+import { getProducts } from "../../Redux/Appreducer/action";
+import { Rating } from "../Cart/Rating";
 
 // const data = [
 //   {
@@ -41,88 +47,125 @@ import { getProducts } from "../Redux/Appreducer/action";
 // ];
 // console.log(data[0].productImgTagSrc);
 
-const dispatch = useDispatch();
-const { id, cat } = useParams();
-const Products = useSelector((store) => store.AppReducer.Products);
-const [currentProduct, setCurrentProduct] = useState({});
-console.log(currentProduct);
-const [data, setData] = useState([{}]);
-useEffect(() => {
-  if (Products.length === 0) {
-    dispatch(getProducts({}, cat));
-  }
-}, [Products.length, dispatch]);
-useEffect(() => {
-  if (id) {
-    const currentProduct = Products.find((item) => item.id === Number(id));
-    currentProduct && setCurrentProduct(currentProduct);
-  }
-}, [id, Products]);
-console.log(currentProduct);
-
-useEffect(() => {
-  setData(currentProduct);
-}, [currentProduct, id, Products]);
- console.log("data",data)
 export default function SingleProductDetial() {
-  const [token, setToken] = useState(getLocalData("userToken"));
+  // const [token, setToken] = useState(getLocalData("userToken"));
   const [size, setsize] = useState("");
+
   const Toast = useToast();
 
-  const AddCart = (data) => {
-    console.log("data", data._id);
-    delete data._id;
-    data.size = size;
-    data.qty = 1;
+  const dispatch = useDispatch();
+  const { id, cat } = useParams();
+  console.log(id, cat);
+  const Products = useSelector((store) => store.AppReducer.Products);
+  const [currentProduct, setCurrentProduct] = useState({});
 
-    const payload = data;
-    return axios
-      .post("https://justbuybackend.onrender.com/products/cart", payload, {
-        headers: { Authorization: "Bearer" + " " + token },
-      })
-      .then((res) => {
-        console.log(res.data);
+  console.log("jfbj", Products);
 
-        Toast({
-          title: res.data,
-          description: `${
-            res.data === "Product Already In The Cart" ? "error" : "success"
-          }`,
-          status: `${
-            res.data === "Product Already In The Cart" ? "error" : "success"
-          }`,
-          duration: 5000,
-          isClosable: true,
-          position: "top",
-        });
+  const [data, setData] = useState([{}]);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (Products.length === 0) {
+      dispatch(getProducts({}, cat));
+    }
+  }, [Products.length, dispatch]);
+  useEffect(() => {
+    if (id) {
+      const currentProduct = Products.find((item) => item.id === Number(id));
+      currentProduct && setCurrentProduct(currentProduct);
+      currentProduct && setData([currentProduct]);
+    }
+  }, [id, Products]);
+  console.log("currentProduct", currentProduct);
+
+  console.log("dataaa", data[0].productImgTagSrc);
+
+  const location = useLocation();
+  const HandleCart = () => {
+    // console.log("currentProduct",currentProduct);
+    console.log(location.pathname);
+    location.pathname = "/cart";
+    console.log(location.pathname);
+    navigate(location.pathname);
+    // fetch(`https://bewakoof-database-api.vercel.app/cartdata`,{
+    //   method:"POST",
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(currentProduct),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log('Success:', data);
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error:', error);
+    //   });
+
+    axios
+      .post("https://636e2daeb567eed48ad57264.mockapi.io/Product", currentProduct)
+      .then((r) => {
+        console.log("post",r.data)
       })
-      .catch((err) => {
-        console.log("error While adding to cart", err);
-        Toast({
-          title: "YOU ARE NOT AUTHORIZED!!",
-          description: "Please Login",
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-          position: "top",
-        });
+      .catch((e) => {
+        console.log(e);
       });
   };
+
+ 
+
+
+  // const AddCart = (data) => {
+  //   console.log("data", data._id);
+  //   delete data._id;
+  //   data.size = size;
+  //   data.qty = 1;
+
+  //   const payload = data;
+  //   return axios
+  //     .post("https://justbuybackend.onrender.com/products/cart", payload, {
+  //       headers: { Authorization: "Bearer" + " " + token },
+  //     })
+  //     .then((res) => {
+  //       console.log(res.data);
+
+  //       Toast({
+  //         title: res.data,
+  //         description: `${
+  //           res.data === "Product Already In The Cart" ? "error" : "success"
+  //         }`,
+  //         status: `${
+  //           res.data === "Product Already In The Cart" ? "error" : "success"
+  //         }`,
+  //         duration: 5000,
+  //         isClosable: true,
+  //         position: "top",
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       console.log("error While adding to cart", err);
+  //       Toast({
+  //         title: "YOU ARE NOT AUTHORIZED!!",
+  //         description: "Please Login",
+  //         status: "error",
+  //         duration: 5000,
+  //         isClosable: true,
+  //         position: "top",
+  //       });
+  //     });
+  // };
   return (
     <Flex w={"85%"} marginLeft={"100px"}>
       <Box marginLeft={"20px"} width={"100%"}>
         {/* <Flex> */}
-        <SingleProductSlider data={data[0].productImgTagSrc} />
+        <SingleProductSlider
+          data={data[0].productImgTagSrc}
+          im={data[0].multi_image}
+        />
 
         {/* </Flex> */}
       </Box>
 
-      <Box
-        maxH={"100vh"}
-        overflow={"scroll"}
-        width={"100%"}
-        marginLeft={"10px"}
-      >
+      <Box maxH={"100vh"} overflow={"auto"} width={"100%"} height={"1000px"} marginLeft={"10px"}>
         <Text
           fontSize={"22px"}
           textAlign={"left"}
@@ -199,7 +242,7 @@ export default function SingleProductDetial() {
         <br />
         <Flex gap={"10px"}>
           <Button
-            onClick={() => AddCart(data)}
+            onClick={HandleCart}
             leftIcon={<CgShoppingBag />}
             bg={"rgb(253,216,53)"}
             colorScheme="rgb(253,216,53)"
@@ -221,7 +264,9 @@ export default function SingleProductDetial() {
         <br />
         <hr />
         <ProductOffer />
+        <Rating/>
       </Box>
+    
     </Flex>
   );
 }

@@ -17,7 +17,7 @@ import { FiChevronDown } from "react-icons/fi";
 
 const CartQuantityButton = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
-    const[qty,setQty]=useState(0)
+    const[qty,setQty]=useState(1)
 	return (
 		<Box>
 			<Button
