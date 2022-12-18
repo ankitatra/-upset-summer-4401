@@ -1,9 +1,9 @@
- .popular{
-    width: 100%;
-    
- }
- .popular h1{
+.popular{
 
+    width: 100%;
+ }
+
+ .popular h1{
     text-align: center;
     margin: 20px 0 10px 0;
     font-size: 20px;
@@ -24,14 +24,8 @@
     display: grid;
     grid-template-columns: repeat(6,1fr);
     justify-content: space-between;
-
-}
-.girls img{
-    width: 100%;
 }
 .newarrival{
     border: 1px solid red;
     height: 500px;
 }
-
-

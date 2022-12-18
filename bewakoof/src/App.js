@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Men } from './Pages/Men';
 import Navbar from './Components/Navbar';
- import MainRoutes from "./MainRoutes/MainRoutes"
+import MainRoutes from "./MainRoutes/MainRoutes";
 
 function App() {
 
@@ -11,8 +11,12 @@ function App() {
   return (
 
      <div className="App">
+
+
       {/* <Men/> */}
       <MainRoutes />
+
+
     </div>
 
 
