@@ -1,13 +1,23 @@
+
 .container{
+
+ .container{
+
     display: none;
 
 }
 .firstpart{
     display: flex;
 
+
 }
 
 @media (min-width: 300px) and (max-width: 999px){
+
+} 
+
+ @media (min-width: 300px) and (max-width: 999px){
+
 
     .container{
         width: 100%;
