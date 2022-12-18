@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
-import { useSearchParams } from "react-router-dom"
+import { useParams, useSearchParams } from "react-router-dom"
 import styles from "../css/FilterCom.module.css"
 
 
 
 //..........................
 
-let brandFilter=['Burberry','Prada','Louis Vuitton','Click n Buy']
+let brandFilter=['Burberry','Prada','Louis Vuitton']
 const brandY=["Qrioh","WRAPCART","Bewakoof","Hocopoco"]
 const discountFilter=[10,20,30,40,50,60,70]
 const ratingFilter=[1,2,3,4,5]
@@ -27,12 +27,14 @@ export const FilterCom = () => {
   // ............................
   const initStateSort=searchParams.get("sort")
   const [sort,setSort]=useState(initStateSort||"")
+  // ...........
+  const {cat}=useParams()
 
 
 
-  // if("mobiles"=="mobiles"){
-  //   brandFilter=brandY
-  // }
+  if(cat=="Mobile"){
+    brandFilter=brandY
+  }
 
   const handleFilterBrand_namez=(el)=>{
     const newBrand_namez=[...brand_namez]
@@ -99,7 +101,7 @@ useEffect(()=>{
 <div className={styles.filterMainFIlASDF}  >
 { /*brand*/ }
 <div>
-   <p className={brand_namez.length!==0?styles.includeFiltersFIlASDF:undefined}>Brand</p>
+   <p className={brand_namez.length!==0?styles.includeFiltersFIlASDF:styles.gapasdf}>Brand</p>
    <div>
 <ul>
 
@@ -114,7 +116,7 @@ useEffect(()=>{
 
 {/* discount */}
 <div>
-  <p className={off!==""?styles.includeFiltersFIlASDF:undefined}>
+  <p className={off!==""?styles.includeFiltersFIlASDF:styles.gapasdf}>
     Discount
   </p>
    <div>
@@ -131,7 +133,7 @@ useEffect(()=>{
 
 {/* rating */}
 <div>
-<p className={rating!==""?styles.includeFiltersFIlASDF:undefined}>
+<p className={rating!==""?styles.includeFiltersFIlASDF:styles.gapasdf}>
   Ratings
 </p>
 <div>
@@ -148,7 +150,7 @@ ratingFilter.map((el)=>{
 
 {/* sortBy */}
 <div>
-  <p className={sort!==""?styles.includeFiltersFIlASDF:undefined}>Sort By</p>
+  <p className={sort!==""?styles.includeFiltersFIlASDF:styles.gapasdf}>Sort By</p>
      <div className={styles.setRadioFIlASDF}>
     
       <div >

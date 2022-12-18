@@ -1,8 +1,14 @@
-.productsDivprdasdfsd{
+ .productsDivprdasdfsd{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 40px 20px;
+    width: 100%;
 }
+
+.nav-category1{
+    display: none;
+}
+
 
 @media only screen and (max-width: 550px) {
     .productsDivprdasdfsd{
@@ -11,4 +17,4 @@
         gap: 40px 20px;
     }
     
-    }
+    } 

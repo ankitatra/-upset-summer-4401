@@ -1,6 +1,5 @@
 .imgDivsnglerwfds{
     width:100%;  
-    overflow: hidden;
   
 }
 .mainsnglerwfds *{
@@ -77,7 +76,6 @@ color: #4f5362;
 
 .Title_wishlistsnglerwfds img{
    height: max-content;
-    /* display: none; */
 }
 
 
@@ -121,4 +119,4 @@ align-items: center;
 .primesnglerwfds>:nth-child(2){
 color:#ff2e2e;
 }
-
+    /* display: none; */
