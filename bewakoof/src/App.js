@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import MainRoutes from "./MainRoutes/MainRoutes"
 import { Men } from './Pages/Men';
+import { Store } from './Components/Store';
+import Routes1 from './MainRoutes/Routes1';
 import Navbar from './Components/Navbar';
 
 function App() {
@@ -11,7 +12,9 @@ function App() {
   return (
 
      <div className="App">
-    <MainRoutes />
+    <Routes1/>
+  {/* <Men/> */}
+  {/* <Store/> */}
     </div>
 
 

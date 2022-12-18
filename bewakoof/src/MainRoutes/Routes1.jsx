@@ -6,16 +6,15 @@ import PrivateRoute from '../Components/PrivateRoute'
 import Home from '../Pages/Home'
 import { Men } from '../Pages/Men'
 
-
-const MainRoutes = () => {
+const Routes1 = () => {
   return (
     <Routes>
-     <Route path ="/" element={<Home />}/>
-     <Route path="/:cat" element={<Store/>}/>
-     <Route path="/products/:cat/:id" element={<CartPage/>}  />
+       <Route path ="/" element={<Home />}/>
+       <Route path="/:cat" element={<Men/>}/>
+       <Route path="/products/:cat/:id" element={<CartPage/>}  />
     
     </Routes>
   )
 }
 
-export default MainRoutes;
+export default Routes1;
