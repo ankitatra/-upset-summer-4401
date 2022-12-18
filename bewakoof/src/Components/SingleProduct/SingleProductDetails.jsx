@@ -1,16 +1,30 @@
 import { Box, Button, Flex, Text, useToast } from "@chakra-ui/react";
 import axios from "axios";
+
+
+
 import { CgShoppingBag } from "react-icons/cg";
 import { CiHeart } from "react-icons/ci";
 import Size from "./Size";
 import ProductOffer from "./ProductOffer";
-// import { getLocalData } from "../../Utils/LocalStorage";
+
 import SingleProductImg from "./SingleProductImg";
 import SingleProductSlider from "./SingleProductSlider";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import {
+  Navigate,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
+import { getProducts } from "../../Redux/Appreducer/action";
+import { Rating } from "../Cart/Rating";
+
 import { Navigate, useParams } from "react-router-dom";
 import { getProducts } from "../../Redux/Appreducer/action";
+
 
 // const data = [
 //   {
@@ -43,6 +57,7 @@ import { getProducts } from "../../Redux/Appreducer/action";
 export default function SingleProductDetial() {
   // const [token, setToken] = useState(getLocalData("userToken"));
   const [size, setsize] = useState("");
+
   const Toast = useToast();
   const dispatch = useDispatch();
   const { id, cat } = useParams();
@@ -68,11 +83,81 @@ export default function SingleProductDetial() {
   }, [currentProduct, id, Products]);
   console.log("data", data);
 
+
+  const dispatch = useDispatch();
+  const { id, cat } = useParams();
+  console.log(id, cat);
+  const Products = useSelector((store) => store.AppReducer.Products);
+  const [currentProduct, setCurrentProduct] = useState({});
+
+  console.log("jfbj", Products);
+
+  const [data, setData] = useState([{}]);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (Products.length === 0) {
+      dispatch(getProducts({}, cat));
+    }
+  }, [Products.length, dispatch]);
+  useEffect(() => {
+    if (id) {
+      const currentProduct = Products.find((item) => item.id === Number(id));
+      currentProduct && setCurrentProduct(currentProduct);
+      currentProduct && setData([currentProduct]);
+    }
+  }, [id, Products]);
+  console.log("currentProduct", currentProduct);
+
+  console.log("dataaa", data[0].productImgTagSrc);
+
+  const location = useLocation();
+  const HandleCart = () => {
+    // console.log("currentProduct",currentProduct);
+    console.log(location.pathname);
+    location.pathname = "/cart";
+    console.log(location.pathname);
+    navigate(location.pathname);
+    // fetch(`https://bewakoof-database-api.vercel.app/cartdata`,{
+    //   method:"POST",
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(currentProduct),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log('Success:', data);
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error:', error);
+    //   });
+
+    axios
+      .post("https://636e2daeb567eed48ad57264.mockapi.io/Product", currentProduct)
+      .then((r) => {
+        console.log("post",r.data)
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+ 
+
+
   // const AddCart = (data) => {
   //   console.log("data", data._id);
   //   delete data._id;
   //   data.size = size;
   //   data.qty = 1;
+
+
+  // const AddCart = (data) => {
+  //   console.log("data", data._id);
+  //   delete data._id;
+  //   data.size = size;
+  //   data.qty = 1;
+
 
   //   const payload = data;
   //   return axios
@@ -111,17 +196,15 @@ export default function SingleProductDetial() {
     <Flex w={"85%"} marginLeft={"100px"}>
       <Box marginLeft={"20px"} width={"100%"}>
         {/* <Flex> */}
-        <SingleProductSlider data={data[0].productImgTagSrc} />
+        <SingleProductSlider
+          data={data[0].productImgTagSrc}
+          im={data[0].multi_image}
+        />
 
         {/* </Flex> */}
       </Box>
 
-      <Box
-        maxH={"100vh"}
-        overflow={"scroll"}
-        width={"100%"}
-        marginLeft={"10px"}
-      >
+      <Box maxH={"100vh"} overflow={"auto"} width={"100%"} height={"1000px"} marginLeft={"10px"}>
         <Text
           fontSize={"22px"}
           textAlign={"left"}
@@ -198,7 +281,11 @@ export default function SingleProductDetial() {
         <br />
         <Flex gap={"10px"}>
           <Button
+
+            onClick={HandleCart}
+
             // onClick={() => AddCart(data)}
+
             leftIcon={<CgShoppingBag />}
             bg={"rgb(253,216,53)"}
             colorScheme="rgb(253,216,53)"
@@ -220,7 +307,9 @@ export default function SingleProductDetial() {
         <br />
         <hr />
         <ProductOffer />
+        <Rating/>
       </Box>
+    
     </Flex>
   );
 }

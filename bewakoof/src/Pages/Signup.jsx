@@ -35,13 +35,13 @@ const Signup = () => {
       <Box
         w="50%"
         h="100vh"
-        // bgGradient="linear(to-t, yellow.100, white)"
+        bgGradient="linear(to-t, yellow.100, white)"
       >
         <Text fontSize={{ base: "15px", md: "40px", lg: "40px" }} as="b">
           Welcome to the world of Fashion Store!
         </Text>
         <Image
-          m={{ base: "50vh 0 0 0", md: "0", lg: "0" }}
+          m={{ base: "25vh 0"}}
           src="https://images.bewakoof.com/web/group-19-1617704502.png"
         />
       </Box>

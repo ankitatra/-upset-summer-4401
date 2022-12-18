@@ -20,7 +20,7 @@ export const Login = () => {
 
   return (
     <Box
-      // bgGradient="linear(to-t, yellow.100, white)"
+      bgGradient="linear(to-t, yellow.100, white)"
       h={"100vh"}
     >
       <Box w={"70%"} m="auto">
