@@ -2,10 +2,10 @@
 
  .sliderbox{
 
-    width: 98%;
+    width: 100%;
     margin-bottom: 20px;
     align-items: center;
-    margin-left: 55px;
+   justify-content: center
    
     
 }
