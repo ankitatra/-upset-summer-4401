@@ -1,8 +1,10 @@
-import logo from './logo.svg';
+
 import './App.css';
+
 import Navbar from './Components/Navbar';
 import { Signup } from './Pages/Signup';
 import MainRoutes from "./MainRoutes/MainRoutes"
+
 
 function App() {
 
@@ -14,11 +16,9 @@ function App() {
 
 
 
-
     <MainRoutes/>
 
 
- 
 
     </div>
 
