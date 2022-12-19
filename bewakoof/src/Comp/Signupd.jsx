@@ -41,8 +41,7 @@ const Signupd = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const comingFrom = location.state?.from?.pathname || "/";
-
+  const comingFrom = location?.state|| "/";
   const {
     isOpen: isGetOtpOpen,
     onOpen: onGetOtpOpen,
@@ -90,7 +89,7 @@ const Signupd = () => {
        
       });
       alert("Your mobile number has been verified successfully");
-      navigate(comingFrom, { replace: true });
+      navigate("/cart", { replace: true });
     } else {
       alert("Invalid OTP!");
       setOtp([]);

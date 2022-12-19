@@ -1,16 +1,16 @@
-import React from 'react'
-import { Navigate } from 'react-router'
+import { useSelector } from "react-redux"
+import { Navigate, useLocation } from "react-router-dom"
 
-const PrivateRoute = ({children}) => {
-    let isAuth = JSON.parse(localStorage.getItem("str"))
-    if(isAuth){
-        return(<Navigate to="/login"/>)
+
+export const PrivateRoute=({children})=>{
+    const isAuth=useSelector((store)=>store.AuthReducer.isAuth)
+    const location=useLocation()
+    
+
+    if(!isAuth){
+        return <Navigate to={"/signup"}  state={{data:location.pathname}} replace />
     }
-  return (
-    <div>
-      {children}
-    </div>
-  )
+    return children
 }
 
 export default PrivateRoute

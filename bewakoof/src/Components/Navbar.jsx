@@ -169,6 +169,7 @@ const Navbar = () => {
 
   const BottomNavbar = () => {
     let str =JSON.parse(localStorage.getItem("str"))
+    const [isAuth,setIsAuth]=useState(false)
     const navigate=useNavigate()
     const searchRef=useRef()
     const [searchHide,setSearchHide]=useState(false)
@@ -188,7 +189,13 @@ const Navbar = () => {
         getCartData();
     },[]);
   
-
+useEffect(()=>{
+  try {
+    setIsAuth(localStorage.getItem("isAuth")||false)
+  } catch (error) {
+    
+  }
+},[isAuth])
     const handleKeyDown=(e)=>{
 if(e.key=="Enter"&&searchRef.current.value){
   navigate(`/${searchRef.current.value}`)
@@ -346,7 +353,7 @@ if(e.key=="Enter"&&searchRef.current.value){
                 <div>
                 
                 
-                  <div className="dropdown_content3">
+                  <div className="dropdown_content3" style={{display:"none"}}>
                   {/* <p>Popular</p> */}
                    
                    
@@ -415,7 +422,7 @@ if(e.key=="Enter"&&searchRef.current.value){
               <div className="DSFASAFRew">
                 
                 
-                <div className="input" >
+                <div className="input"  >
                     <div className="input1"
                      onMouseEnter={()=>{
                       if(!searchHide){
@@ -443,49 +450,24 @@ if(e.key=="Enter"&&searchRef.current.value){
                     {/* <span style={{ fontSize: "20px", fontWeight: "lighter" }}>
                         </span> */}
                     
-                    <Link>
+                    <Link to={"/signup"}>
                           <span>
-                             {str ? (
-                      <Box disabled={true} fontSize="12px" className="drop">
-                        <Heading  fontSize="12px">
-                          <AvatarGroup spacing="1rem">
-                            <Avatar boxSize={8} bg="teal.500" />
-                          </AvatarGroup>
-                        </Heading>
-                        <Box className="dropmenu" bg="white" p="30px">
-                          {" "}
-                          <Heading mt="30px" fontSize="12px">
-                              Hi
-                            </Heading>
-                            <Heading mt="30px" fontSize="12px">
-                              my Account
-                            </Heading>
-                            <Heading mt="30px" fontSize="12px">
-                              My Wishlist
-                            </Heading>
-                            <Heading mt="30px" fontSize="12px">
-                              My Orders
-                            </Heading>
-                            <Heading mt="30px" fontSize="12px">
-                              My wallet
-                            </Heading>
-                            <Heading
-                              onClick={() => {
-                                localStorage.setItem(
-                                  "sts",
-                                  JSON.stringify(false)
-                                );
-                              }}
-                              mt="30px"
-                              fontSize="12px"
-                            >
-                              Logout
-                            </Heading>
-                        </Box>
-                      </Box>
-                    ):(
-                      "Login"
-                    )}
+                            
+                    {isAuth? <img className="asdfaer"
+                    src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+                    alt=""
+                    
+                    />
+                    
+                    
+                    
+
+                    :
+                        "Login"
+                    
+                    
+                    }
+                  
                   </span>
                    </Link> 
 
@@ -496,7 +478,7 @@ if(e.key=="Enter"&&searchRef.current.value){
                   </Link>
 
 
-                  <Link>
+                  <Link to={"/cart"}>
                     <span><BsBag/></span>
                     <span>
                       {}

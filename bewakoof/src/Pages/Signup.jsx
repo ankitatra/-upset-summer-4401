@@ -14,19 +14,23 @@ import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { GrUserAdmin } from "react-icons/gr";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import "../css/Hidden.css"
 
+
 const Signup = () => {
+  
   const [mobile, setMobile] = useState("");
   const navigate = useNavigate();
-
+  const location=useLocation()
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("You seem to be a new user");
-    navigate("/signupd");
+    navigate("/signupd",{state:location.state?.data||"/", replace:true});
+ 
+
   };
 
   const handleEmail = () => {

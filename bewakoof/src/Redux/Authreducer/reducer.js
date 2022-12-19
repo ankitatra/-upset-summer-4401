@@ -12,6 +12,7 @@ const AuthReducer = (state = initialState, action) => {
     case types.LOGIN_REQUEST:
       return { ...state, isLoading: true };
     case types.LOGIN_SUCCESS:
+      console.log(payload)
       localStorage.setItem("username",JSON.stringify(payload.data.name))
       console.log(payload.data.name)
       localStorage.setItem("isAuth",JSON.stringify(true))
