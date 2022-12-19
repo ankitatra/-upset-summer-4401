@@ -86,10 +86,10 @@ const Signupd = () => {
     onVerifyOtpClose();
     if (otp.join("") == otpVal) {
       dispatch(login({ name, mobile, email, password })).then((r) => {
-       
-      });
       alert("Your mobile number has been verified successfully");
-      navigate("/cart", { replace: true });
+        navigate(comingFrom, { replace: true });
+      });
+     
     } else {
       alert("Invalid OTP!");
       setOtp([]);

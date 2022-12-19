@@ -8,6 +8,8 @@ const login = (payload) => (dispatch) => {
     .post("https://636e2daeb567eed48ad57264.mockapi.io/login", payload)
     .then((r) => {
       dispatch({ type: types.LOGIN_SUCCESS, payload: r });
+      localStorage.setItem("username",JSON.stringify(payload.data.name))
+      localStorage.setItem("isAuth",JSON.stringify(true))
     })
     .catch((e) => {
       dispatch({ type: types.LOGIN_FAILURE });
