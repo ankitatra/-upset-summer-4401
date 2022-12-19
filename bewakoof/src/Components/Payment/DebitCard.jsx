@@ -194,7 +194,7 @@ export const DebitCard = () => {
                     <InputGroup>
                       <Input
                         variant="flushed"
-                        placeholder=" "
+                        placeholder="Valid through(MM/YY)"
                         type="number"
                         value={valid}
                         onChange={(e) => {
@@ -207,7 +207,7 @@ export const DebitCard = () => {
                           fontFamily={"Montserrat"}
                           // display={"none"}
                         >
-                          Valid through(MM/YY)
+                          
                         </FormLabel>
                       </InputRightElement>
                     </InputGroup>
@@ -231,14 +231,14 @@ export const DebitCard = () => {
                   <FormControl
                     isInvalid={cvvError}
                     variant="floating"
-                    isRequired
+                    // isRequired
                   >
                     <FormLabel fontFamily={"Montserrat"} fontSize={"16px"}>
-                      cvv
+                   
                     </FormLabel>
                     <Input
                       variant="flushed"
-                      placeholder={""}
+                      placeholder="cvv"
                       type="number"
                       value={cvv}
                       onChange={(e) => {

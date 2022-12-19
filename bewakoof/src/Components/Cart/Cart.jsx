@@ -9,6 +9,7 @@ import { Rating } from "./Rating";
 
 export const Cart = () => {
   const [dataa, setDataa] = useState([]);
+  const [name,setname]=useState("ankita")
   const getdata = () => {
     axios
       .get("https://636e2daeb567eed48ad57264.mockapi.io/Product")
@@ -28,22 +29,36 @@ export const Cart = () => {
     console.log("dataaAmoounthgghghgh", dataa.discountedPriceText);
   }
 
+
+ useEffect(()=>{
+  try {
+    let username=JSON.parse(localStorage.getItem("username"))||""
+    setname(username)
+  } catch (error) {
+    
+  }
+ },[])
+  
+    console.log("user",name)
+
+  
   return (
     <>
-      <Box  marginLeft={20} marginRight={20}>
+
+      <Box marginLeft={20} marginRight={20}>
         <Flex justifyContent={"space-around"}>
           <Box paddingTop={2} fontSize={25} fontWeight={"bold"}>
             <Text> Fashion Store</Text>
           </Box>
-          <Box paddingTop={2}>ankitathakur</Box>
+          <Box paddingTop={2}>{name}</Box>
         </Flex>
         <Box
           paddingInlineStart={5}
           marginTop={5}
+          marginRight={5}
           border="1px solid rgb(234, 234, 234)"
         >
           <Flex>
-           
             <Text fontWeight={"bold"}>My Bag </Text>
             <Text paddingLeft={2}>{`${" "}${dataa.length}`} item(s)</Text>
           </Flex>
@@ -63,7 +78,7 @@ export const Cart = () => {
           </Box>
           <Box marginTop={5}>
             <Box marginLeft={5}>
-              <Button width={"470px"} backgroundColor={"yellow"}>
+              <Button width={"570px"} backgroundColor={"yellow"}>
                 Save extra ₹350 with TriBe
               </Button>
             </Box>
@@ -85,7 +100,6 @@ export const Cart = () => {
             </Box>
 
             <Ammount />
-           
           </Box>
         </Flex>
       </Box>

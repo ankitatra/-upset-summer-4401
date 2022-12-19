@@ -17,6 +17,7 @@ import { CartPage } from "../Pages/CartPage";
 import { Admin } from "../Pages/admin";
 import Dashboard from "../Components/FinalAdmin/Dashboard";
 import { Users } from "../Components/FinalAdmin/users";
+import Adminlogin from "../Components/adminlogin";
 
 
 const MainRoutes = () => {
@@ -38,6 +39,7 @@ const MainRoutes = () => {
       <Route path="/adminadd" element={<Admin/>}/>
       <Route path="/admin" element={<Dashboard/>}/>
       <Route path="/adminusers" element={<Users/>}/>
+      <Route path="/adminLogin" element={<Adminlogin/>}/>
         
 
     </Routes>

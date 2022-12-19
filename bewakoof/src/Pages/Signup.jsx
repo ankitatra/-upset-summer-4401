@@ -105,7 +105,7 @@ const Signup = () => {
           fontSize="15px"
           variant="outline"
           leftIcon={<GrUserAdmin />}
-          onClick={handleEmail}
+          onClick={()=>navigate("/adminLogin")}
         >
           LOGIN AS ADMIN
         </Button>

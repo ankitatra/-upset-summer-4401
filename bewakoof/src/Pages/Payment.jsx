@@ -29,6 +29,7 @@ export const Payment = () => {
   console.log("localstorage", data);
 
   const [dataa, setData] = useState([]);
+  const[name,setname]=useState("ankita")
   const getdata = () => {
     axios
       .get("https://636e2daeb567eed48ad57264.mockapi.io/Product")
@@ -45,6 +46,17 @@ export const Payment = () => {
     getdata();
   }, [dataa]);
 
+  useEffect(()=>{
+    try {
+      let username=JSON.parse(localStorage.getItem("username"))||""
+      setname(username)
+    } catch (error) {
+      
+    }
+   },[])
+    
+      console.log("user",name)
+
   return (
     <>
     <Navbar />
@@ -55,7 +67,7 @@ export const Payment = () => {
        <Text fontWeight={"bold"} fontSize={20}>
          FASHION STORE
        </Text>
-       <Text>ankitathakur</Text>
+       <Text>{name}</Text>
      </Flex>
    </Box>
    <Flex>
@@ -181,7 +193,7 @@ export const Payment = () => {
        </Box>
        {/* </Flex> */}
      </Box>
-     <Box  border="1px solid rgb(234, 234, 234)"fontSize={10} marginLeft={10}paddingLeft={20}>
+     <Box  border="1px solid rgb(234, 234, 234)"fontSize={15} marginLeft={10}paddingLeft={20}>
        <Text>
          Delivering order to <span fontWeight={"bold"}>{data.fullname}</span>{" "}
          {data.city} {data.state}
