@@ -38,3 +38,36 @@ export const getProducts=(params,cat)=>async (dispatch)=>{
     }
     
 }
+
+//....................adminside..........
+
+export const getdataRequest=()=>{
+    return{
+        type:types.Get_data_Request
+    }
+}
+
+export const getdataSuccess=(payload)=>{
+    return{
+        type:types.Get_data_Success,
+        payload:payload,
+    }
+}
+
+export const getdatafailuer=()=>{
+    return{
+        type:types.Get_data_Failuer
+    }
+}
+export const getdata =()=> (dispatch) => {
+    dispatch(getdataRequest());
+    axios
+      .get("https://636e2daeb567eed48ad57264.mockapi.io/admin")
+      .then((r) => {
+        dispatch(getdataSuccess(r.data));
+        console.log(r.data);
+      })
+      .catch((e) => {
+        dispatch(getdatafailuer());
+      });
+  };

@@ -1,8 +1,10 @@
+import { Action } from "@remix-run/router";
 import * as types from "./actionType"
 const initialState = {
   Products: [],
   isLoading: false,
   isError: false,
+  admin:[]
 };
 
 const reducer = (state = initialState,{type,payload}) => {
@@ -22,6 +24,18 @@ const reducer = (state = initialState,{type,payload}) => {
           return {
             ...state,Products:payload,isLoading:false
           };
+          case types.Get_data_Request:
+            return{
+              ...state,isLoading:true
+            }
+          case types.Get_data_Success:
+            return{
+              ...state,admin:payload,isLoading:false
+            }
+          case types.Get_data_Failuer:
+            return{
+              ...state,isError:true,isLoading:false
+            }
    
                 default:
                     return state

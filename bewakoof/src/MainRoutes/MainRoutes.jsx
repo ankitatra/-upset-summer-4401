@@ -14,6 +14,9 @@ import Home from "../Pages/Home";
 
 import { Store } from "../Components/Store";
 import { CartPage } from "../Pages/CartPage";
+import { Admin } from "../Pages/admin";
+import Dashboard from "../Components/FinalAdmin/Dashboard";
+import { Users } from "../Components/FinalAdmin/users";
 
 
 const MainRoutes = () => {
@@ -32,6 +35,10 @@ const MainRoutes = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/signupd" element={<Signupd />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/adminadd" element={<Admin/>}/>
+      <Route path="/admin" element={<Dashboard/>}/>
+      <Route path="/adminusers" element={<Users/>}/>
+        
 
     </Routes>
   );
