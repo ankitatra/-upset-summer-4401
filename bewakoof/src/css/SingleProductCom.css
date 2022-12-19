@@ -37,19 +37,19 @@
     width: max-content;
     padding: 0px 2px 0px 5px;
     top: -3rem;
+    height: 13px;
     margin-bottom: -1rem;
     
 
 }
 .ratingDivsnglerwfds p{
-    height: max-content;
     margin: 0px ;
     display: flex;
     color: rgb(22, 3, 3);
 
 }
 .ratingDivsnglerwfds span{
-    height: max-content;
+   
     color: rgb(233, 202, 28);
 }
 
@@ -105,7 +105,8 @@ color: #4f5362;
 .primesnglerwfds{
     display: flex;
     justify-content: space-between;
-align-items: center;
+   align-items: center;
+   width: 100%;
  
 }
 
@@ -114,9 +115,45 @@ align-items: center;
     font-weight: 700;
     color: rgba(0, 0, 0, 0.81);
     background: #f7f7f7;
-    width: max-content;
 }
 .primesnglerwfds>:nth-child(2){
 color:#ff2e2e;
+
+}
+
+@media only screen and (max-width: 690px) {
+  
+    .primesnglerwfds p{
+        font-size: 8px;
+    }
+    
+    .primesnglerwfds>:nth-child(2){
+        font-size: 10px;
+        
+        }
+}
+
+@media only screen and (max-width: 560px) {
+  
+    .primesnglerwfds p{
+        font-size: 10px;
+    }
+    
+    .primesnglerwfds>:nth-child(2){
+        font-size: 10px;
+        
+        }
 }
     /* display: none; */
+
+    @media only screen and (max-width: 440px) {
+  
+        .primesnglerwfds p{
+            font-size: 8px;
+        }
+        
+        .primesnglerwfds>:nth-child(2){
+            font-size: 8px;
+            
+            }
+    }

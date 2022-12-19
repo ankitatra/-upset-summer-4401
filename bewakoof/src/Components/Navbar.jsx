@@ -12,6 +12,7 @@ import {BsBag, BsHeart} from "react-icons/bs"
 
 const Navbar = () => {
     const [sticky , setSticky] = useState("");
+    
     useEffect(() => {
         window.addEventListener("scroll",stickNavbar);
         return () => window.removeEventListener("scroll", stickNavbar)
@@ -170,6 +171,7 @@ const Navbar = () => {
     let str =JSON.parse(localStorage.getItem("str"))
     const navigate=useNavigate()
     const searchRef=useRef()
+    const [searchHide,setSearchHide]=useState(false)
      
     const [data,setData] = useState("")
 
@@ -192,7 +194,6 @@ if(e.key=="Enter"&&searchRef.current.value){
   navigate(`/${searchRef.current.value}`)
 }
     }
-
   return (
     <>
       <div>
@@ -339,7 +340,7 @@ if(e.key=="Enter"&&searchRef.current.value){
               </div>
 
 
-              <div className="nav_dropdown">
+              <div className={`nav_dropdown ${searchHide?"mobileNav":undefined}`}>
                 {/* <Link to=""></Link> */}
                 <p onClick={()=>navigate("/Mobile")}>Mobile Covers</p>
                 <div>
@@ -385,7 +386,7 @@ if(e.key=="Enter"&&searchRef.current.value){
                       </div>
                      
                      
-                      <div className="line"></div>
+                      <div className="line" ></div>
                       
                       
                       <div>
@@ -408,19 +409,36 @@ if(e.key=="Enter"&&searchRef.current.value){
                </div>
               </div>
             
-          </div>
+            </div>
               
            
               <div className="DSFASAFRew">
                 
                 
-                <div className="input">
-                    <div className="input1">
-                       <span><CiSearch /></span>
-                       <input type="text" className="input-box" ref={searchRef} onKeyDown={handleKeyDown} placeholder="Search by product, category or callection"/>
+                <div className="input" >
+                    <div className="input1"
+                     onMouseEnter={()=>{
+                      if(!searchHide){
+                        setSearchHide(true)
+                      }}}
+                      
+                     onMouseLeave={()=>{
+                        if(searchHide){
+                      setSearchHide(false)
+                   
+                    }}}
+                      >
+                       <span  
+                    
+                    
+                   
+                    
+                    ><CiSearch /></span>
+                    
+           <input  type="text"  className={searchHide?"showInput":undefined} ref={searchRef} onKeyDown={handleKeyDown} placeholder="Search by product, category or callection"/>
                     </div>
                 
-                 <div className="login">
+                 <div  className={`login ${searchHide?"hidelogin":undefined}`}>
                  
                     {/* <span style={{ fontSize: "20px", fontWeight: "lighter" }}>
                         </span> */}

@@ -105,15 +105,45 @@ padding: 20px;
 }
 
 
-@media only screen and (max-width: 1020px) {
-    .mainStore{
-        grid-template-columns: 30% 70%;
+@media only screen and (max-width: 1075px) {
+    .main{
+        padding:10px 70px;
+        color: #2d2d2d;
+    
     }
+    .mainStore{
+        grid-template-columns: 18% 82%;
+      
+    }
+    .mainStore>:last-child{
+        padding-right: 0px;
+    }
+    
+    
+    
+}
+
+@media only screen and (max-width: 820px) {
+    .main{
+        padding:10px 60px;
+        color: #2d2d2d;
+    
+    }
+    .mainStore{
+        grid-template-columns: 25% 75%;
+      
+    }
+    .mainStore>:last-child{
+        padding-right: 0px;
+    }
+    
+    
+    
 }
 
 @media only screen and (max-width: 780px) {
     .main{
-        padding: 10px 50px;
+        padding: 10px 30px;
     }
 .mainStore{
     grid-template-columns: repeat(1,1fr);
@@ -123,6 +153,9 @@ padding: 20px;
 .mainStore>:first-child{
     display: none;
 
+}
+.mainStore>:last-child{
+    padding: 0px;
 }
 
 .headingDiv{
