@@ -1,5 +1,6 @@
 
 # Bewakoof.com-Clone
+## [Deployed URL](https://helpful-boba-72cf74.netlify.app/)
 
 
 -Ecommerce Website
