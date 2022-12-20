@@ -1,10 +1,10 @@
 
 # Bewakoof.com-Clone
 ## [Deployed URL](https://helpful-boba-72cf74.netlify.app/)
-
+## Fashion Store
 
 -Ecommerce Website
-Bewakoof is India’s largest Casual Wear and Lifestyle Brand and E-commerce platform. Its headquarter is situated in Mumbai, Maharashtra. Bewakoof.com was founded in 2012 by Prabhakiran Singh and Siddharth Munot.
+Bewakoof is  Casual Wear and Lifestyle Brand and E-commerce platform. 
 The Bewkoof was founded as the Trendy and witty T-Shirt Brand by two IIT Bombay Ex-students. In 2012, Bewkoof launched as an E-commerce platform for the youth and its portfolio includes trendy fashion apparel for men and women.
 
 ---
@@ -49,10 +49,10 @@ To run this application on your local system
 
 - On opening the application the user is taken to the landing Page which have a Navbar to navigate to different Section of the application.
 - On the Landing Page Navbar, user can click on Website Logo in Navbar to navigate to categories where all the categories of the products available are displayed.
-- There are three categories available Mens/Womens/Accessories.
+- There are three categories available Mens/Womens/Mobile.
 - Product Pages containing all the Products available with options of sort and filter according to users requirements.
 - Single Product Page to view the description of each and every Product.
-- Cart Page with of add/change/delete the product.
+- Cart Page with of add/delete the product.
 - Payment Pages with form validation.
 
 ---
