@@ -66,16 +66,18 @@ To run this application on your local system
 
 ### Categories
 
-<img width="1000" alt="cat1" src="https://user-images.githubusercontent.com/97459069/200315987-5c1cc2ce-beee-4f6f-892b-fe061d16aedc.PNG">
-<img width="1000" alt="cat2" src="https://user-images.githubusercontent.com/97459069/200316001-6b04901a-3529-4a68-88ec-7b09053d321d.PNG">
-<img width="1000" alt="cat3" src="https://user-images.githubusercontent.com/97459069/200316021-bbef3062-6739-4fcb-89d0-9b5322c126d4.PNG">
+![image](https://user-images.githubusercontent.com/61157473/208609670-4a81b568-4639-4d90-bc83-71ad980e4c25.png)
+
+![image](https://user-images.githubusercontent.com/61157473/208609810-594275fb-7184-40a7-99ac-a08d2f011a4e.png)
+![image](https://user-images.githubusercontent.com/61157473/208610610-9aa82556-ee73-4a85-b88b-706be57c6895.png)
+
 ---
 
 ### Products Section
 
-<img width="1000" alt="Men" src="https://user-images.githubusercontent.com/97459069/200316073-363e8eb0-8602-4879-a895-ba3ad2b58195.PNG">
-<img width="1000" alt="Women" src="https://user-images.githubusercontent.com/97459069/200316120-d54870f8-b174-4fc6-9f59-7b4a2fe804de.PNG">
-<img width="1000" alt="single" src="https://user-images.githubusercontent.com/97459069/200316105-acdddbee-1c8d-44ff-a508-33bbc872a383.PNG">
+![image](https://user-images.githubusercontent.com/61157473/208610772-2a65fc95-7ca5-4fcb-abd4-a1210f816fb2.png)
+![image](https://user-images.githubusercontent.com/61157473/208610834-ab9e123d-adbf-4d16-929e-b5ba17aac40b.png)
+
 
 ---
 
@@ -85,17 +87,7 @@ To run this application on your local system
 
 ---
 
-### Cart Page
 
-<img width="1000" alt="Cart" src="https://user-images.githubusercontent.com/97459069/200315910-f4dc4b7a-ec8b-4db3-81c2-0933473ce317.PNG">
-
----
-
-### Payments Page
-
-<img width="1000" alt="pay" src="https://user-images.githubusercontent.com/97459069/200316087-0b8f30f3-21d7-4928-b374-341f579573db.PNG">
-
----
 
 ## Authors
 
