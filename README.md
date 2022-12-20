@@ -59,7 +59,8 @@ To run this application on your local system
 
 ### Home Page and Footer
 
-  <img width="1000" alt="Home" src="https://user-images.githubusercontent.com/97459069/200315726-944f0769-9cd1-444f-90e2-7439d51a3884.PNG">
+  ![image](https://user-images.githubusercontent.com/61157473/208609356-61e1bafe-d490-4df8-bce0-07c0a2fca050.png)
+
   <img width="1000" alt="Footer" src="https://user-images.githubusercontent.com/97459069/200316035-a51c3fb1-2bfc-49f9-a0ad-cbf47ed5cfde.PNG">
 ---
 
