@@ -49,7 +49,6 @@ export const PostRequest = () => {
         category,
       })
       .then(function (response) {
-        console.log(response);
       })
       .catch(function (error) {
         console.log(error);
@@ -131,9 +130,9 @@ export const PostRequest = () => {
             >
               <HStack spacing="24px">
                 <SimpleGrid columns={3}>
-                  <Radio value="Healthcare">Men</Radio>
-                  <Radio value="Beuty">Women</Radio>
-                  <Radio value="Homecare">Mobile</Radio>
+                  <Radio value="Men">Men</Radio>
+                  <Radio value="Women">Women</Radio>
+                  <Radio value="Mobile">Mobile</Radio>
                 </SimpleGrid>
               </HStack>
             </RadioGroup>

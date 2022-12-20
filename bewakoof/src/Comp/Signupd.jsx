@@ -217,7 +217,7 @@ const Signupd = () => {
                   <Input
                     type="number"
                     placeholder="Enter Mobile Number"
-                    value={mobile}
+                    defaultValue={mobile}
                     mt={4}
                     w="80%"
                     h={"50px"}

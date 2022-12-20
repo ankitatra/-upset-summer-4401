@@ -26,7 +26,6 @@ import Footer from "../Components/Footer";
 
 export const Payment = () => {
   const data = JSON.parse(localStorage.getItem("address")) || [];
-  console.log("localstorage", data);
 
   const [dataa, setData] = useState([]);
   const[name,setname]=useState("ankita")
@@ -35,10 +34,8 @@ export const Payment = () => {
       .get("https://636e2daeb567eed48ad57264.mockapi.io/Product")
       .then((r) => {
         setData(r.data);
-        console.log(r.data);
       })
       .catch((e) => {
-        console.log(e);
       });
   };
 
@@ -55,7 +52,6 @@ export const Payment = () => {
     }
    },[])
     
-      console.log("user",name)
 
   return (
     <>
@@ -203,9 +199,9 @@ export const Payment = () => {
        </Text>
        <Box>
          {dataa &&
-           dataa.map((e) => {
+           dataa.map((e,id) => {
              return (
-               <Box padding={5}>
+               <Box key={e.id+id} padding={5}>
                  <Image width={"50px"} src={e.productImgTagSrc} />
                  <Text>{`price ₹${e.actualPriceText}`}</Text>
                  <Text>{e.clr_shade_4}</Text>

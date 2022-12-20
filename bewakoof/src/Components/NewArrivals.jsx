@@ -15,7 +15,6 @@ const NewArrivals = () => {
    const getproductdata=()=>{
     axios.get("https://bewakoof-database-api.vercel.app/mensdata?_limit=12").then((res)=>{
       setproductdatalist(res.data)
-       console.log("data",res.data)
     })
    }
    const navigate=useNavigate()
@@ -41,10 +40,10 @@ const NewArrivals = () => {
     </div>
     <div className='newarrivalsmp'>
     <Slider {...settings} >
-    {productdatalist.map((item)=>{
+    {productdatalist.map((item,id)=>{
         {/* console.log(item) */}
       return(
-        <SingleProductCom {...item} cat="mensdata"  />
+        <SingleProductCom {...item} key={item+id} cat="mensdata"  />
    
     )
       

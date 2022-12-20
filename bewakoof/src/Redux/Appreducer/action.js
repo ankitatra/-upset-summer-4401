@@ -65,7 +65,6 @@ export const getdata =()=> (dispatch) => {
       .get("https://636e2daeb567eed48ad57264.mockapi.io/admin")
       .then((r) => {
         dispatch(getdataSuccess(r.data));
-        console.log(r.data);
       })
       .catch((e) => {
         dispatch(getdatafailuer());

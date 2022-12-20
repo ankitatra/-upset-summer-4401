@@ -93,7 +93,6 @@ export const AddressForm = () => {
   const navigate=useNavigate()
   const location=useLocation()
   const handleAddress = () => {
-    console.log("hii");
     const data = {
       fullname: fullname,
       country: country,
@@ -101,9 +100,7 @@ export const AddressForm = () => {
       city: city,
       pincode: pincode,
     };
-    console.log(data);
     localStorage.setItem("address",JSON.stringify(data))
-    console.log(location)
     location.pathname="./Payment"
     navigate("./Payment")
   };
@@ -112,7 +109,7 @@ export const AddressForm = () => {
       <Button
        width={"300px"}
       //  paddingLeft={15}
-      pdddingRight={100}
+      // padddingRight={100}
         backgroundColor={"rgba(66,162,161)"}
         onClick={onOpen}
       >

@@ -120,8 +120,8 @@ const ListDiv = ({ data, datatop }) => {
                 {datatop}
             </p>
             <ul>
-                {data.map((item) => (
-                    <li className={f.tail}>{item}</li>
+                {data.map((item,id) => (
+                    <li key={item+id} className={f.tail}>{item}</li>
                 ))}
             </ul>
         </>
@@ -134,8 +134,8 @@ const ListDiv2 = ({ data, datatop }) => {
                 {datatop}
             </p>
             <ul>
-                {data.map((item) => (
-                    <li className={f.tail}>{item}</li>
+                {data.map((item,id) => (
+                    <li  key={item+id}  className={f.tail}>{item}</li>
                 ))}
             </ul>
         </>

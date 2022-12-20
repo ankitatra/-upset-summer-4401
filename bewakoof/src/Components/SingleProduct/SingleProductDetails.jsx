@@ -60,11 +60,9 @@ export default function SingleProductDetial() {
   const Toast = useToast();
   const dispatch = useDispatch();
   const { id, cat } = useParams();
-  console.log(id, cat);
   const Products = useSelector((store) => store.AppReducer.Products);
   const [currentProduct, setCurrentProduct] = useState({});
 
-  console.log("jfbj", Products);
 
   const [data, setData] = useState([{}]);
   const navigate = useNavigate();
@@ -80,16 +78,12 @@ export default function SingleProductDetial() {
       currentProduct && setData([currentProduct]);
     }
   }, [id, Products]);
-  console.log("currentProduct", currentProduct);
 
-  console.log("dataaa", data[0].productImgTagSrc);
 
   const location = useLocation();
   const HandleCart = () => {
     // console.log("currentProduct",currentProduct);
-    console.log(location.pathname);
     location.pathname = "/cart";
-    console.log(location.pathname);
     navigate(location.pathname);
     // fetch(`https://bewakoof-database-api.vercel.app/cartdata`,{
     //   method:"POST",
@@ -109,10 +103,8 @@ export default function SingleProductDetial() {
     axios
       .post("https://636e2daeb567eed48ad57264.mockapi.io/Product", currentProduct)
       .then((r) => {
-        console.log("post",r.data)
       })
       .catch((e) => {
-        console.log(e);
       });
   };
 

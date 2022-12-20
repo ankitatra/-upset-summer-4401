@@ -8,6 +8,7 @@ import axios from "axios";
 import { Box, Heading } from "@chakra-ui/layout";
 import { Avatar, AvatarGroup } from "@chakra-ui/avatar";
 import {BsBag, BsHeart} from "react-icons/bs"
+import { useSelector } from "react-redux";
 
 
 const Navbar = () => {
@@ -169,7 +170,7 @@ const Navbar = () => {
 
   const BottomNavbar = () => {
     let str =JSON.parse(localStorage.getItem("str"))
-    const [isAuth,setIsAuth]=useState(false)
+    const isAuth=useSelector((store)=>store.AuthReducer.isAuth)
     const navigate=useNavigate()
     const searchRef=useRef()
     const [searchHide,setSearchHide]=useState(false)
@@ -189,13 +190,7 @@ const Navbar = () => {
         getCartData();
     },[]);
   
-useEffect(()=>{
-  try {
-    setIsAuth(localStorage.getItem("isAuth")||false)
-  } catch (error) {
-    
-  }
-},[isAuth])
+
     const handleKeyDown=(e)=>{
 if(e.key=="Enter"&&searchRef.current.value){
   navigate(`/${searchRef.current.value}`)
@@ -257,7 +252,7 @@ if(e.key=="Enter"&&searchRef.current.value){
          
          
           <div className="firstpart1">
-           <Link to="/"><img src={logo} alt="logo" /></Link> 
+           <Link to="/"><img src={"https://helpful-boba-72cf74.netlify.app/static/media/logo.ab4c3efdbab9da427219.png"} alt="logo" /></Link> 
             
           </div>
 

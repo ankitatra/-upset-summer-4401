@@ -13,12 +13,10 @@ export const Ammount = () => {
         // console.log(r.data[0]);
       })
       .catch((e) => {
-        console.log(e);
       });
   };
 
 
-  console.log("datsAmount", data);
   let totalPrice = 0;
   data &&
     data.forEach((item) => {
@@ -33,8 +31,6 @@ export const Ammount = () => {
     
   let subtotal = totalPrice - DiscountPrice;
 
-  console.log("totallll", totalPrice);
-  console.log("Discounttotallll", DiscountPrice);
   
   useEffect(() => {
     getdata();

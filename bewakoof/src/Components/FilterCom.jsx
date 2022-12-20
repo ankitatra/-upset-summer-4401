@@ -30,7 +30,6 @@ export const FilterCom = () => {
   // ...........
   const {cat}=useParams()
 
-console.log(cat)
   if(cat=="Mobile"){
     brandFilter=brandY
   }

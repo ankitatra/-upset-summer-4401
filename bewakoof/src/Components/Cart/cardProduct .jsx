@@ -49,14 +49,11 @@ export const CartProduct = ({ data }) => {
   // 	Number(strickprice.slice(1, strickprice.length - 1)) - Number(finalprice);
 
   const removeFromCartHandler = (id) => {
-    console.log(id);
     axios
       .delete(`https://636e2daeb567eed48ad57264.mockapi.io/Product/${id}`)
       .then((r) => {
-        console.log(r.data);
       })
       .catch((e) => {
-        console.log(e);
       });
   };
   const [dataa, setDataa] = useState([]);
@@ -65,10 +62,8 @@ export const CartProduct = ({ data }) => {
       .get("https://636e2daeb567eed48ad57264.mockapi.io/Product")
       .then((r) => {
         setDataa(r.data);
-        console.log(r.data);
       })
       .catch((e) => {
-        console.log(e);
       });
   };
   useEffect(()=>{

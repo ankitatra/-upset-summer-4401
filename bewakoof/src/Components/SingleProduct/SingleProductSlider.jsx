@@ -15,14 +15,11 @@ const SingleProductSlider = ( {data,im} ) => {
 
   let d=data
   const arr=im
-  console.log("d",typeof d)
   const [url, setUrl] = useState(d);
   useEffect(()=>{
     setUrl(d)
   
   },[data])
-  console.log("imageeeeeeee",arr)
-  console.log("urlll",url)
   return (
     <>
       <div>

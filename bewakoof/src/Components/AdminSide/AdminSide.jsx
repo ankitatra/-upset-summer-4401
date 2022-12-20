@@ -29,7 +29,6 @@ export const AdminSide = () => {
   const ref = useRef();
   const dispatch=useDispatch()
   const admindata=useSelector(state=>state.AppReducer.admin)
-  console.log(admindata)
   const deldataoflist = (id) => {
     axios
       .delete(`https://636e2daeb567eed48ad57264.mockapi.io/admin/${id}`)
