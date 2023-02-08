@@ -95,7 +95,7 @@ To run this application on your local system
 
 
 
-## Authors
+##  Contributors
 
 1. [Govind Kumawat](https://github.com/gk072745)
 2. [Gaurav Sudhanshu](https://github.com/GauravSudhanshu)
